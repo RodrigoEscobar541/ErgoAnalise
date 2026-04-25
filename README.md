@@ -1,0 +1,1 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6d432512-f6be-4c2d-a825-f7e4a97c9c15/deploy-status)](https://app.netlify.com/projects/ergoanalise/deploys)
