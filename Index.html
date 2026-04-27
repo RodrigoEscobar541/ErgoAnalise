@@ -1082,9 +1082,11 @@
     }
 
     .contact-card .cc-value {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
       color: var(--white);
+      letter-spacing: 0.01em;
     }
 
     .contact-card a {
@@ -1331,55 +1333,73 @@
     }
 
     .chat-input-area {
-      padding: 1rem 1.5rem;
+      padding: 1.2rem 1.5rem;
       border-top: 1px solid rgba(41, 78, 61, 0.1);
-      display: flex;
-      gap: 0.8rem;
-      align-items: center;
       background: var(--white);
     }
 
-    .chat-input {
-      flex: 1;
-      border: 1px solid rgba(41, 78, 61, 0.15);
-      padding: 0.7rem 1rem;
-      border-radius: 99px;
-      font-family: var(--font-body);
-      font-size: 0.875rem;
-      color: var(--text-main);
+    .chat-input-area .chat-options-hint {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .chat-input-area .chat-options-hint::before {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 1px;
+      background: var(--sage);
+    }
+
+    .chat-options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.6rem;
+    }
+
+    .chat-option-card {
       background: var(--off-white);
-      outline: none;
-      transition: border 0.2s;
-    }
-
-    .chat-input:focus {
-      border-color: var(--sage);
-    }
-
-    .chat-send {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: var(--forest);
-      border: none;
-      cursor: pointer;
+      border: 1.5px solid rgba(41, 78, 61, 0.12);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-align: center;
+      cursor: default;
+      transition: all 0.25s var(--ease-out-expo);
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: background 0.2s;
-      flex-shrink: 0;
+      min-height: 48px;
     }
 
-    .chat-send:hover {
-      background: var(--rust);
+    .chat-option-card.active {
+      cursor: pointer;
+      color: var(--forest);
+      border-color: rgba(41, 78, 61, 0.25);
     }
 
-    .chat-send svg {
-      width: 16px;
-      height: 16px;
-      fill: none;
-      stroke: var(--white);
-      stroke-width: 2;
+    .chat-option-card.active:hover {
+      background: var(--forest);
+      color: var(--white);
+      border-color: var(--forest);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(41, 78, 61, 0.2);
+    }
+
+    @media (max-width: 500px) {
+      .chat-options-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* ── WHATSAPP FLOAT ── */
@@ -1680,14 +1700,13 @@
         </div>
         <div class="chat-messages" id="chatMessages"></div>
         <div class="chat-input-area">
-          <input type="text" class="chat-input" id="chatInput" placeholder="Escolha uma opção acima ou digite aqui..."
-            readonly onclick="this.blur()">
-          <button class="chat-send" style="opacity:0.4;cursor:default;" disabled>
-            <svg viewBox="0 0 24 24">
-              <line x1="22" y1="2" x2="11" y2="13" />
-              <polygon points="22 2 15 22 11 13 2 9 22 2" />
-            </svg>
-          </button>
+          <div class="chat-options-hint">Selecione uma opção</div>
+          <div class="chat-options-grid" id="chatOptionsGrid">
+            <div class="chat-option-card">—</div>
+            <div class="chat-option-card">—</div>
+            <div class="chat-option-card">—</div>
+            <div class="chat-option-card">—</div>
+          </div>
         </div>
       </div>
     </div>
@@ -1956,7 +1975,7 @@
         </div>
         <div class="contact-card">
           <div class="cc-label">E-mail</div>
-          <div class="cc-value"><a href="mailto:apoio.consultoria.10@gmail.com">apoio.consultoria.10</a></div>
+          <div class="cc-value"><a href="mailto:apoio.consultoria.10@gmail.com">apoio.consultoria.10@gmail.com</a></div>
         </div>
       </div>
       <a href="https://wa.me/5511983853451" target="_blank" class="btn btn-primary reveal reveal-delay-3"
@@ -2248,6 +2267,34 @@
       }
     };
 
+    function updateBottomGrid(options) {
+      const grid = document.getElementById('chatOptionsGrid');
+      grid.innerHTML = '';
+      // Always show at least 4 slots (or more if needed)
+      const slotCount = Math.max(4, options ? options.length : 4);
+      for (let i = 0; i < slotCount; i++) {
+        const card = document.createElement('div');
+        card.className = 'chat-option-card';
+        if (options && options[i]) {
+          card.classList.add('active');
+          card.textContent = options[i].label;
+          const opt = options[i];
+          card.onclick = () => {
+            disableOptions();
+            if (opt.next === 'wpp') {
+              window.open('https://wa.me/5511983853451', '_blank');
+              return;
+            }
+            appendMessage('user', opt.label);
+            setTimeout(() => showTyping(() => showNode(opt.next)), 750);
+          };
+        } else {
+          card.textContent = '—';
+        }
+        grid.appendChild(card);
+      }
+    }
+
     function appendMessage(type, content, isOptions) {
       const msgs = document.getElementById('chatMessages');
       const div = document.createElement('div');
@@ -2258,25 +2305,9 @@
       av.textContent = type === 'bot' ? 'E' : 'V';
 
       if (isOptions) {
-        const bubble = document.createElement('div');
-        bubble.className = 'msg-bubble options';
-        content.forEach(opt => {
-          const btn = document.createElement('button');
-          btn.className = 'opt-btn';
-          btn.textContent = opt.label;
-          btn.onclick = () => {
-            disableOptions();
-            if (opt.next === 'wpp') {
-              window.open('https://wa.me/5511983853451', '_blank');
-              return;
-            }
-            appendMessage('user', opt.label);
-            setTimeout(() => showTyping(() => showNode(opt.next)), 750);
-          };
-          bubble.appendChild(btn);
-        });
-        div.appendChild(av);
-        div.appendChild(bubble);
+        // Only populate the bottom grid — no inline bubble options
+        updateBottomGrid(content);
+        return; // Don't add anything to the chat messages area
       } else {
         const bubble = document.createElement('div');
         bubble.className = 'msg-bubble';
@@ -2297,10 +2328,8 @@
     }
 
     function disableOptions() {
-      document.querySelectorAll('.opt-btn:not(:disabled)').forEach(b => {
-        b.disabled = true;
-        b.style.opacity = '0.45';
-      });
+      // Reset bottom grid to placeholder
+      updateBottomGrid(null);
     }
 
     function showTyping(cb) {
