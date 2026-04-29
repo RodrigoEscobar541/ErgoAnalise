@@ -595,7 +595,11 @@
       align-items: start;
     }
 
-    .cenario-left {}
+    .cenario-left {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
 
     .cenario-right {
       display: grid;
@@ -1008,6 +1012,167 @@
       background: var(--amber);
       border-radius: 50%;
       flex-shrink: 0;
+    }
+
+    /* ── SOBRE / QUEM SOMOS ── */
+    #sobre {
+      padding: 8rem 4vw;
+      background: var(--off-white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sobre-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .sobre-photo-wrap {
+      position: relative;
+    }
+
+    .sobre-photo-wrap::before {
+      content: '';
+      position: absolute;
+      top: -16px;
+      left: -16px;
+      right: 16px;
+      bottom: 16px;
+      border: 1px solid rgba(41, 78, 61, 0.15);
+      z-index: 0;
+    }
+
+    .sobre-photo-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: -16px;
+      right: -16px;
+      width: 120px;
+      height: 120px;
+      background: var(--amber);
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    .sobre-photo {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: grayscale(10%) contrast(1.05);
+      transition: filter 0.5s ease;
+    }
+
+    .sobre-photo:hover {
+      filter: grayscale(0%) contrast(1.08);
+    }
+
+    .sobre-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .sobre-text .sobre-name {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--ink);
+    }
+
+    .sobre-text .sobre-name strong {
+      font-weight: 600;
+      color: var(--forest);
+    }
+
+    .sobre-text .sobre-role {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--rust);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .sobre-text .sobre-role::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--rust);
+    }
+
+    .sobre-text .sobre-bio {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+    }
+
+    .sobre-text .sobre-bio strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .sobre-quote {
+      position: relative;
+      padding: 1.5rem 2rem;
+      background: var(--white);
+      border-left: 3px solid var(--amber);
+      margin-top: 0.5rem;
+    }
+
+    .sobre-quote::before {
+      content: '\201C';
+      position: absolute;
+      top: -0.2rem;
+      left: 0.8rem;
+      font-family: var(--font-display);
+      font-size: 4rem;
+      color: var(--amber);
+      opacity: 0.2;
+      line-height: 1;
+    }
+
+    .sobre-quote p {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--forest);
+      line-height: 1.7;
+    }
+
+    .sobre-credentials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .sobre-credentials .badge {
+      background: var(--cream);
+      border-color: rgba(41, 78, 61, 0.1);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--forest);
+    }
+
+    .sobre-credentials .badge:hover {
+      background: var(--forest);
+      color: var(--white);
     }
 
     /* ── CONTATO / CTA ── */
@@ -1522,6 +1687,16 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
+      .sobre-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .sobre-photo-wrap {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
       .nav-links {
         display: none;
       }
@@ -1601,6 +1776,7 @@
       #metodologia,
       #desenvolvimento,
       #regioes,
+      #sobre,
       #contato,
       #chat-section {
         padding: 5rem 5vw;
@@ -1627,6 +1803,7 @@
       <li><a href="#solucoes" onclick="navTo('solucoes',event)">Soluções</a></li>
       <li><a href="#metodologia" onclick="navTo('metodologia',event)">Metodologia</a></li>
       <li><a href="#desenvolvimento" onclick="navTo('desenvolvimento',event)">Desenvolvimento</a></li>
+      <li><a href="#sobre" onclick="navTo('sobre',event)">Quem Somos</a></li>
       <li><a href="#chat-section" onclick="navTo('chat-section',event)">Chat</a></li>
       <li><a href="#contato" onclick="navTo('contato',event)" class="nav-cta">Fale Conosco</a></li>
     </ul>
@@ -1641,6 +1818,7 @@
     <a href="#solucoes" onclick="closeMenu();navTo('solucoes',event)">Soluções</a>
     <a href="#metodologia" onclick="closeMenu();navTo('metodologia',event)">Metodologia</a>
     <a href="#desenvolvimento" onclick="closeMenu();navTo('desenvolvimento',event)">Desenvolvimento</a>
+    <a href="#sobre" onclick="closeMenu();navTo('sobre',event)">Quem Somos</a>
     <a href="#chat-section" onclick="closeMenu();navTo('chat-section',event)">Chat</a>
     <a href="#contato" onclick="closeMenu();navTo('contato',event)">Fale Conosco</a>
   </div>
@@ -1949,6 +2127,44 @@
             <li>Palestras e workshops remotos</li>
             <li>Rodas de Conversa virtuais</li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE / QUEM SOMOS -->
+  <section id="sobre">
+    <div class="sobre-inner">
+      <div class="reveal">
+        <div class="section-eyebrow">Quem Somos</div>
+        <h2 class="section-title">A pessoa por trás da <em>ErgoAnálise</em></h2>
+      </div>
+      <div class="sobre-grid">
+        <div class="sobre-photo-wrap reveal reveal-delay-1">
+          <img src="livia-escobar.png" alt="Lívia Escobar – Fundadora da ErgoAnálise" class="sobre-photo"
+            loading="lazy">
+        </div>
+        <div class="sobre-text reveal reveal-delay-2">
+          <div class="sobre-role">Fundadora &amp; Especialista</div>
+          <h3 class="sobre-name">Lívia <strong>Escobar</strong></h3>
+          <p class="sobre-bio">
+            Psicóloga especialista em <strong>Ergonomia e Fatores Humanos</strong>, com formação
+            que integra a escuta clínica ao rigor técnico das normas regulamentadoras. Atua há anos
+            transformando ambientes de trabalho em espaços mais saudáveis, produtivos e conformes
+            — porque acredita que cuidar das pessoas é a estratégia mais inteligente de qualquer
+            organização.
+          </p>
+          <div class="sobre-quote">
+            <p>Ergonomia de verdade olha para o trabalho real — não para o trabalho prescrito.
+              É nessa diferença que moram os riscos e as oportunidades.</p>
+          </div>
+          <div class="sobre-credentials">
+            <span class="badge">Psicóloga – CRP Ativo</span>
+            <span class="badge">Especialista em Ergonomia</span>
+            <span class="badge">NR-01 &amp; NR-17</span>
+            <span class="badge">Riscos Psicossociais</span>
+            <span class="badge">Metodologia SomaPsi</span>
+          </div>
         </div>
       </div>
     </div>
