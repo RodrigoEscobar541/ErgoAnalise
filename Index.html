@@ -1424,149 +1424,110 @@
       font-weight: 600;
     }
 
-    .msg-bubble.options {
-      background: none;
-      box-shadow: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .opt-btn {
-      background: var(--white);
-      border: 1.5px solid rgba(41, 78, 61, 0.25);
-      padding: 0.55rem 1rem;
-      border-radius: 99px;
-      font-size: 0.8rem;
-      color: var(--forest);
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: var(--font-body);
-    }
-
-    .opt-btn:hover {
-      background: var(--forest);
-      color: var(--white);
-      border-color: var(--forest);
-    }
-
-    .opt-btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    .chat-typing {
-      display: flex;
-      gap: 5px;
-      align-items: center;
-      padding: 0.6rem 1rem;
-      background: var(--white);
-      border-radius: 12px;
-      border-bottom-left-radius: 4px;
-      width: fit-content;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    }
-
-    .chat-typing span {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--sage);
-      animation: dotBounce 1.2s ease-in-out infinite;
-    }
-
-    .chat-typing span:nth-child(2) {
-      animation-delay: 0.2s;
-    }
-
-    .chat-typing span:nth-child(3) {
-      animation-delay: 0.4s;
-    }
-
-    @keyframes dotBounce {
-
-      0%,
-      60%,
-      100% {
-        transform: translateY(0);
-      }
-
-      30% {
-        transform: translateY(-8px);
-      }
-    }
-
-    .chat-input-area {
-      padding: 1.2rem 1.5rem;
-      border-top: 1px solid rgba(41, 78, 61, 0.1);
-      background: var(--white);
-    }
-
-    .chat-input-area .chat-options-hint {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      color: var(--text-muted);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 0.8rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .chat-input-area .chat-options-hint::before {
-      content: '';
-      display: inline-block;
-      width: 16px;
-      height: 1px;
-      background: var(--sage);
-    }
-
-    .chat-options-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.6rem;
-    }
-
-    .chat-option-card {
+    /* ── ORÇAMENTO / FORMULÁRIO ── */
+    #orcamento {
       background: var(--off-white);
-      border: 1.5px solid rgba(41, 78, 61, 0.12);
-      border-radius: 8px;
-      padding: 0.85rem 1rem;
-      font-family: var(--font-body);
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      text-align: center;
-      cursor: default;
-      transition: all 0.25s var(--ease-out-expo);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
+      position: relative;
+      overflow: hidden;
+      padding: 6rem 5vw;
     }
 
-    .chat-option-card.active {
+    .orcamento-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .form-selector {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .selector-card {
+      background: var(--white);
+      border: 1.5px solid rgba(41, 78, 61, 0.1);
+      border-radius: 16px;
+      padding: 1.5rem;
       cursor: pointer;
-      color: var(--forest);
-      border-color: rgba(41, 78, 61, 0.25);
+      transition: all 0.3s var(--ease-out-expo);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      position: relative;
     }
 
-    .chat-option-card.active:hover {
-      background: var(--forest);
-      color: var(--white);
+    .selector-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--sage);
+      box-shadow: 0 10px 30px rgba(41, 78, 61, 0.08);
+    }
+
+    .selector-card.active {
       border-color: var(--forest);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 16px rgba(41, 78, 61, 0.2);
+      background: var(--forest);
     }
 
-    @media (max-width: 500px) {
-      .chat-options-grid {
+    .selector-card h4 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--forest);
+      margin: 0;
+      transition: color 0.3s;
+    }
+
+    .selector-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.4;
+      transition: color 0.3s;
+    }
+
+    .selector-card.active h4,
+    .selector-card.active p {
+      color: var(--white);
+    }
+
+    .iframe-wrapper {
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(41, 78, 61, 0.05);
+      overflow: hidden;
+      min-height: 800px;
+      position: relative;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.5s ease;
+    }
+
+    .iframe-wrapper.loaded {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .iframe-wrapper iframe {
+      width: 100%;
+      height: 800px;
+      border: none;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .form-selector {
         grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .iframe-wrapper iframe {
+        height: 1000px;
+      }
+      .iframe-wrapper {
+        min-height: 1000px;
       }
     }
+
 
     /* ── WHATSAPP FLOAT ── */
     .wpp-float {
@@ -1805,7 +1766,7 @@
       <li><a href="#metodologia" onclick="navTo('metodologia',event)">Metodologia</a></li>
       <li><a href="#desenvolvimento" onclick="navTo('desenvolvimento',event)">Desenvolvimento</a></li>
       <li><a href="#sobre" onclick="navTo('sobre',event)">Quem Somos</a></li>
-      <li><a href="#chat-section" onclick="navTo('chat-section',event)">Chat</a></li>
+      <li><a href="#orcamento" onclick="navTo('orcamento',event)">Orçamento</a></li>
       <li><a href="#contato" onclick="navTo('contato',event)" class="nav-cta">Fale Conosco</a></li>
     </ul>
     <div class="hamburger" id="hamburger" onclick="toggleMenu()">
@@ -1820,7 +1781,8 @@
     <a href="#metodologia" onclick="closeMenu();navTo('metodologia',event)">Metodologia</a>
     <a href="#desenvolvimento" onclick="closeMenu();navTo('desenvolvimento',event)">Desenvolvimento</a>
     <a href="#sobre" onclick="closeMenu();navTo('sobre',event)">Quem Somos</a>
-    <a href="#chat-section" onclick="closeMenu();navTo('chat-section',event)">Chat</a>
+    <a href="#orcamento" onclick="closeMenu();navTo('orcamento',event)">Orçamento</a>
+
     <a href="#contato" onclick="closeMenu();navTo('contato',event)">Fale Conosco</a>
   </div>
 
@@ -1860,33 +1822,30 @@
     </div>
   </section>
 
-  <!-- CHAT (2ª section) -->
-  <section id="chat-section">
-    <div class="chat-inner">
-      <div class="chat-header reveal">
-        <div class="section-eyebrow">Atendimento Inteligente</div>
-        <h2 class="section-title">Converse <em>conosco</em></h2>
-        <p class="section-lead">Responda algumas perguntas rápidas e descubra como a ErgoAnálise pode ajudar a sua
-          empresa.</p>
+  <!-- ORÇAMENTO -->
+  <section id="orcamento">
+    <div class="orcamento-container">
+      <div class="reveal">
+        <div class="section-eyebrow">Solicite um Orçamento</div>
+        <h2 class="section-title">Escolha o tipo de <em>atendimento</em></h2>
+        <p class="section-lead">Selecione o formulário abaixo para nos enviar os detalhes do que sua empresa precisa.</p>
       </div>
-      <div class="chat-window reveal reveal-delay-1">
-        <div class="chat-topbar">
-          <div class="chat-avatar">E</div>
-          <div class="chat-topbar-info">
-            <h4>ErgoAnálise Consultoria</h4>
-            <span>Online agora</span>
-          </div>
+
+      <div class="form-selector reveal reveal-delay-1">
+        <div class="selector-card active" onclick="switchForm('treinamentos', this)">
+          <h4>Treinamentos e Palestras</h4>
+          <p>Capacitação de equipes, workshops e palestras de saúde mental.</p>
         </div>
-        <div class="chat-messages" id="chatMessages"></div>
-        <div class="chat-input-area">
-          <div class="chat-options-hint">Selecione uma opção</div>
-          <div class="chat-options-grid" id="chatOptionsGrid">
-            <div class="chat-option-card">—</div>
-            <div class="chat-option-card">—</div>
-            <div class="chat-option-card">—</div>
-            <div class="chat-option-card">—</div>
-          </div>
+        <div class="selector-card" onclick="switchForm('analises', this)">
+          <h4>AET / AEP / ARP</h4>
+          <p>Análises ergonômicas e avaliações de riscos psicossociais.</p>
         </div>
+      </div>
+
+      <div id="form-container" class="iframe-wrapper reveal reveal-delay-2">
+        <iframe id="google-form-iframe"
+          src="https://docs.google.com/forms/d/e/1FAIpQLSdVBI6nW5X_hQN3sWcc657bUeuIsXcwQq6GLAC5H_RC0R5MQg/viewform?embedded=true"
+          frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
       </div>
     </div>
   </section>
@@ -2273,315 +2232,39 @@
     }, { threshold: 0.12 });
     reveals.forEach(el => observer.observe(el));
 
-    // ── CHAT: PURELY OPTIONS-BASED QUESTIONNAIRE ──
-    const chatData = {
-      start: {
-        msg: "Olá! 👋 Fico feliz que você esteja aqui. Para te ajudar melhor, me conta: qual é o seu perfil?",
-        options: [
-          { label: "Sou empresário / RH", next: "empresario" },
-          { label: "Sou gestor de equipe", next: "gestor" },
-          { label: "Sou colaborador", next: "colaborador" },
-          { label: "Estou pesquisando sobre o tema", next: "pesquisando" }
-        ]
-      },
-      empresario: {
-        msg: "Que bom! Como empresário ou profissional de RH, você provavelmente lida com isso com frequência. O que mais te preocupa agora?",
-        options: [
-          { label: "Adequação à NR-01 e NR-17", next: "nr_preocupa" },
-          { label: "Risco de ações trabalhistas", next: "acoes_trabalhistas" },
-          { label: "Saúde e bem-estar da equipe", next: "saude_equipe" },
-          { label: "Não sei por onde começar", next: "nao_sei" }
-        ]
-      },
-      gestor: {
-        msg: "Entendido! Gestores têm um papel essencial na saúde do ambiente de trabalho. O que você está observando na sua equipe?",
-        options: [
-          { label: "Sinais de esgotamento / burnout", next: "burnout" },
-          { label: "Conflitos e clima pesado", next: "conflitos" },
-          { label: "Queda de produtividade", next: "produtividade" },
-          { label: "Quero prevenir antes de haver problemas", next: "prevencao" }
-        ]
-      },
-      colaborador: {
-        msg: "Obrigada por compartilhar! Trabalhamos para que o ambiente de trabalho seja mais saudável para todos. O que você está sentindo?",
-        options: [
-          { label: "Me sinto sobrecarregado(a)", next: "sobrecarregado" },
-          { label: "Há situações de assédio na empresa", next: "assedio" },
-          { label: "Dores físicas por causa do trabalho", next: "dores_fisicas" },
-          { label: "Quero indicar a empresa para meu RH", next: "indicar" }
-        ]
-      },
-      pesquisando: {
-        msg: "Ótimo! O conhecimento é o primeiro passo. O que você quer entender melhor?",
-        options: [
-          { label: "O que é ergonomia?", next: "o_que_ergonomia" },
-          { label: "O que dizem as NRs 01 e 17?", next: "o_que_nrs" },
-          { label: "O que são fatores psicossociais?", next: "psicossociais_def" },
-          { label: "Como a ErgoAnálise trabalha?", next: "como_trabalha" }
-        ]
-      },
-      nr_preocupa: {
-        msg: "Essa é uma preocupação muito válida. A NR-01 (atualizada em 2024) passou a exigir que toda empresa inclua **riscos psicossociais no PGR**. A NR-17 cuida da ergonomia física. Empresas fora da conformidade estão sujeitas a multas e autuações. Quer dar o próximo passo?",
-        options: [
-          { label: "Quero uma análise da minha empresa", next: "agendar" },
-          { label: "Me conta mais sobre o processo", next: "como_trabalha" },
-          { label: "← Voltar ao início", next: "start" }
-        ]
-      },
-      acoes_trabalhistas: {
-        msg: "É um risco real e crescente. Ações por assédio moral, burnout e adoecimento mental crescem ano a ano. Um **laudo técnico robusto** é a melhor defesa jurídica — e prova que sua empresa agiu com responsabilidade. Posso te ajudar com isso.",
-        options: [
-          { label: "Quero proteger minha empresa", next: "agendar" },
-          { label: "Quais documentos vocês emitem?", next: "documentos" },
-          { label: "← Voltar ao início", next: "start" }
-        ]
-      },
-      saude_equipe: {
-        msg: "Excelente prioridade! Colaboradores saudáveis são mais engajados e produtivos. Além das análises técnicas, oferecemos **palestras, rodas de conversa e psicoterapia individual** para equipes. Um cuidado real que vai além da conformidade.",
-        options: [
-          { label: "Quero saber os serviços disponíveis", next: "servicos_lista" },
-          { label: "Agendar consultoria gratuita", next: "agendar" },
-          { label: "← Voltar ao início", next: "start" }
-        ]
-      },
-      nao_sei: {
-        msg: "Fique tranquilo(a)! É exatamente para isso que estou aqui. O primeiro passo é uma **consultoria diagnóstica gratuita**, onde entendemos o porte da sua empresa, os riscos presentes e o que precisa ser feito. Sem compromisso.",
-        options: [
-          { label: "Ótimo, quero agendar!", next: "agendar" },
-          { label: "Me conta mais sobre vocês", next: "como_trabalha" },
-          { label: "← Voltar ao início", next: "start" }
-        ]
-      },
-      burnout: {
-        msg: "Isso é um sinal importante de alerta. O burnout é reconhecido pela OMS como doença ocupacional — e a responsabilidade recai sobre a **organização do trabalho**, não apenas sobre o indivíduo. A ErgoAnálise identifica as causas e cria planos de ação concretos.",
-        options: [
-          { label: "Como vocês fazem isso?", next: "como_trabalha" },
-          { label: "Quero levar isso ao meu RH", next: "indicar" },
-          { label: "← Voltar ao início", next: "start" }
-        ]
-      },
-      conflitos: {
-        msg: "Conflitos frequentes podem indicar problemas na **cultura organizacional** ou nas relações de poder. Trabalhamos com Rodas de Conversa e análise de risco psicossocial para mapear as raízes — e não só os sintomas.",
-        options: [
-          { label: "Quero saber mais sobre isso", next: "como_trabalha" },
-          { label: "Agendar consultoria", next: "agendar" },
-          { label: "← Voltar ao início", next: "start" }
-        ]
-      },
-      produtividade: {
-        msg: "Queda de produtividade quase sempre tem causas ocultas: sobrecarga, ambiente físico inadequado, falta de autonomia ou mal-estar emocional. Nossa metodologia **SomaPsi** investiga todas essas dimensões com profundidade.",
-        options: [
-          { label: "Como funciona essa metodologia?", next: "como_trabalha" },
-          { label: "Agendar uma análise", next: "agendar" },
-          { label: "← Voltar ao início", next: "start" }
-        ]
-      },
-      prevencao: {
-        msg: "Melhor decisão! Empresas que investem em prevenção economizam muito mais do que as que precisam remediar. Uma **ARP (Avaliação de Riscos Psicossociais)** identifica os fatores antes que virem problemas.",
-        options: [
-          { label: "Quero fazer a ARP na minha empresa", next: "agendar" },
-          { label: "Entender melhor o processo", next: "como_trabalha" },
-          { label: "← Voltar ao início", next: "start" }
-        ]
-      },
-      sobrecarregado: {
-        msg: "Sinto muito que você esteja passando por isso. O esgotamento no trabalho é sério e merece atenção. A ErgoAnálise pode trabalhar com sua empresa para mudar isso — além de oferecer **psicoterapia individual** para colaboradores.",
-        options: [
-          { label: "Indicar para o meu RH", next: "indicar" },
-          { label: "Saber mais sobre psicoterapia", next: "psicoter" },
-          { label: "← Voltar ao início", next: "start" }
-        ]
-      },
-      assedio: {
-        msg: "Isso é muito sério e você fez bem em buscar informação. O assédio moral e sexual são riscos psicossociais que precisam de intervenção técnica. Nossa ARP identifica esses padrões e auxilia a empresa a criar protocolos de proteção.",
-        options: [
-          { label: "Como indicar à minha empresa?", next: "indicar" },
-          { label: "← Voltar ao início", next: "start" }
-        ]
-      },
-      dores_fisicas: {
-        msg: "Dores no pescoço, costas, ombros e punhos são muito comuns e quase sempre estão ligadas ao posto de trabalho. A **AET (Análise Ergonômica do Trabalho)** avalia cadeira, mesa, monitor, postura e muito mais.",
-        options: [
-          { label: "Minha empresa deveria fazer isso?", next: "nr_preocupa" },
-          { label: "Indicar para o meu RH", next: "indicar" },
-          { label: "← Voltar ao início", next: "start" }
-        ]
-      },
-      indicar: {
-        msg: "Que iniciativa incrível! Você pode compartilhar o contato da ErgoAnálise com o seu RH ou gestor. Nosso WhatsApp é **11 98385-3451** e o site é **ergoanalise.com.br**. Também posso te enviar mais informações!",
-        options: [
-          { label: "Abrir WhatsApp agora", next: "wpp" },
-          { label: "← Voltar ao início", next: "start" }
-        ]
-      },
-      o_que_ergonomia: {
-        msg: "A **Ergonomia** é a ciência que estuda a relação entre o ser humano, o trabalho e o ambiente. Vai muito além da cadeira e da mesa — envolve organização do trabalho, carga cognitiva, relações interpessoais e fatores psicossociais.",
-        options: [
-          { label: "E os fatores psicossociais?", next: "psicossociais_def" },
-          { label: "O que as NRs dizem?", next: "o_que_nrs" },
-          { label: "← Voltar ao início", next: "start" }
-        ]
-      },
-      o_que_nrs: {
-        msg: "A **NR-01** (2024) exige inclusão de riscos psicossociais no PGR de toda empresa. A **NR-17** regula as condições ergonômicas: mobiliário, equipamentos, postura, ritmo de trabalho e organização. Descumprir gera multas e facilita ações trabalhistas.",
-        options: [
-          { label: "Minha empresa está adequada?", next: "nao_sei" },
-          { label: "Como se adequar?", next: "como_trabalha" },
-          { label: "← Voltar ao início", next: "start" }
-        ]
-      },
-      psicossociais_def: {
-        msg: "Fatores psicossociais são condições do trabalho que impactam a saúde mental: sobrecarga, falta de autonomia, assédio, conflitos, insegurança e má gestão. A NR-01 tornou obrigatório o mapeamento e gestão desses fatores.",
-        options: [
-          { label: "Como a ErgoAnálise mapeia isso?", next: "como_trabalha" },
-          { label: "Quero fazer na minha empresa", next: "agendar" },
-          { label: "← Voltar ao início", next: "start" }
-        ]
-      },
-      como_trabalha: {
-        msg: "Usamos a **Metodologia SomaPsi** — 6 etapas: Identificação → Avaliação → Matriz de Risco → Diagnóstico → Sugestões → Plano de Ação. Tudo com escuta ativa, instrumentos validados e documentação técnica completa.",
-        options: [
-          { label: "Quero começar agora", next: "agendar" },
-          { label: "Ver os serviços disponíveis", next: "servicos_lista" },
-          { label: "← Voltar ao início", next: "start" }
-        ]
-      },
-      documentos: {
-        msg: "Emitimos: **AET** (Análise Ergonômica do Trabalho), **AEP** (Análise Ergonômica Preliminar), **ARP** (Avaliação de Riscos Psicossociais) e o **GRO** (Plano de Gerenciamento de Riscos Ocupacionais), integrado ao PGR da empresa.",
-        options: [
-          { label: "Agendar consultoria gratuita", next: "agendar" },
-          { label: "← Voltar ao início", next: "start" }
-        ]
-      },
-      servicos_lista: {
-        msg: "Oferecemos: **AET & AEP** (análise ergonômica), **ARP** (riscos psicossociais), **GRO** (gestão integrada), **Palestras & Workshops**, **Rodas de Conversa** e **Psicoterapia Individual** para colaboradores. Tudo presencial ou online!",
-        options: [
-          { label: "Quero saber os valores", next: "agendar" },
-          { label: "Atendimento online?", next: "online_info" },
-          { label: "← Voltar ao início", next: "start" }
-        ]
-      },
-      online_info: {
-        msg: "Sim! Atendemos **100% online** empresas de todo o Brasil, especialmente equipes em home-office. AEP, ARP, treinamentos, palestras e rodas de conversa — tudo remotamente, com a mesma qualidade técnica.",
-        options: [
-          { label: "Agendar online", next: "agendar" },
-          { label: "← Voltar ao início", next: "start" }
-        ]
-      },
-      psicoter: {
-        msg: "Oferecemos **psicoterapia individual** para colaboradores em sofrimento psíquico — um benefício que pode ser contratado pela empresa. É um cuidado real que demonstra o compromisso da organização com o ser humano por trás do crachá.",
-        options: [
-          { label: "Minha empresa pode contratar?", next: "agendar" },
-          { label: "← Voltar ao início", next: "start" }
-        ]
-      },
-      agendar: {
-        msg: "Perfeito! 🎉 A consultoria diagnóstica inicial é **gratuita e sem compromisso**. Nossa especialista Lívia Escobar vai entender a situação da sua empresa e apresentar o que faz sentido para vocês. Clique abaixo para falar pelo WhatsApp!",
-        options: [
-          { label: "💬 Falar no WhatsApp agora", next: "wpp" },
-          { label: "← Explorar mais antes", next: "start" }
-        ]
-      }
+    // ── GOOGLE FORMS SELECTION ──
+    const forms = {
+      treinamentos: "https://docs.google.com/forms/d/e/1FAIpQLSdVBI6nW5X_hQN3sWcc657bUeuIsXcwQq6GLAC5H_RC0R5MQg/viewform?embedded=true",
+      analises: "https://docs.google.com/forms/d/e/1FAIpQLSc7zsLp5yWAQKBXO66YKy9RXy3DWC4oq2Q4QlPVFA6gtQmcpw/viewform?embedded=true"
     };
 
-    function updateBottomGrid(options) {
-      const grid = document.getElementById('chatOptionsGrid');
-      grid.innerHTML = '';
-      // Always show at least 4 slots (or more if needed)
-      const slotCount = Math.max(4, options ? options.length : 4);
-      for (let i = 0; i < slotCount; i++) {
-        const card = document.createElement('div');
-        card.className = 'chat-option-card';
-        if (options && options[i]) {
-          card.classList.add('active');
-          card.textContent = options[i].label;
-          const opt = options[i];
-          card.onclick = () => {
-            disableOptions();
-            if (opt.next === 'wpp') {
-              window.open('https://wa.me/5511983853451', '_blank');
-              return;
-            }
-            appendMessage('user', opt.label);
-            setTimeout(() => showTyping(() => showNode(opt.next)), 750);
-          };
-        } else {
-          card.textContent = '—';
-        }
-        grid.appendChild(card);
-      }
-    }
+    function switchForm(type, element) {
+      const iframe = document.getElementById('google-form-iframe');
+      const container = document.getElementById('form-container');
 
-    function appendMessage(type, content, isOptions) {
-      const msgs = document.getElementById('chatMessages');
-      const div = document.createElement('div');
-      div.className = `msg ${type}`;
+      // Update Active State
+      document.querySelectorAll('.selector-card').forEach(card => card.classList.remove('active'));
+      element.classList.add('active');
 
-      const av = document.createElement('div');
-      av.className = 'msg-avatar';
-      av.textContent = type === 'bot' ? 'E' : 'V';
+      // Transition effect
+      container.classList.remove('loaded');
 
-      if (isOptions) {
-        // Only populate the bottom grid — no inline bubble options
-        updateBottomGrid(content);
-        return; // Don't add anything to the chat messages area
-      } else {
-        const bubble = document.createElement('div');
-        bubble.className = 'msg-bubble';
-        bubble.innerHTML = content
-          .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-          .replace(/\n/g, '<br>');
-        if (type === 'bot') {
-          div.appendChild(av);
-          div.appendChild(bubble);
-        } else {
-          div.appendChild(bubble);
-          div.appendChild(av);
-        }
-      }
-
-      msgs.appendChild(div);
-      msgs.scrollTop = msgs.scrollHeight;
-    }
-
-    function disableOptions() {
-      // Reset bottom grid to placeholder
-      updateBottomGrid(null);
-    }
-
-    function showTyping(cb) {
-      const msgs = document.getElementById('chatMessages');
-      const wrapper = document.createElement('div');
-      wrapper.className = 'msg bot';
-      wrapper.id = 'typing-indicator';
-      const av = document.createElement('div');
-      av.className = 'msg-avatar';
-      av.textContent = 'E';
-      const typing = document.createElement('div');
-      typing.className = 'chat-typing';
-      typing.innerHTML = '<span></span><span></span><span></span>';
-      wrapper.appendChild(av);
-      wrapper.appendChild(typing);
-      msgs.appendChild(wrapper);
-      msgs.scrollTop = msgs.scrollHeight;
       setTimeout(() => {
-        const t = document.getElementById('typing-indicator');
-        if (t) t.remove();
-        cb();
-      }, 900);
+        iframe.src = forms[type];
+        setTimeout(() => container.classList.add('loaded'), 300);
+      }, 300);
+
+      // Scroll smoothly to top of form if needed
+      const navH = document.getElementById('navbar').offsetHeight;
+      const top = container.getBoundingClientRect().top + window.scrollY - navH - 100;
+      window.scrollTo({ top, behavior: 'smooth' });
     }
 
-    function showNode(key) {
-      const node = chatData[key];
-      if (!node) return;
-      appendMessage('bot', node.msg);
-      if (node.options) {
-        setTimeout(() => appendMessage('bot', null, node.options), 350);
-      }
-    }
-
-    // Start chat
-    setTimeout(() => showTyping(() => showNode('start')), 1200);
+    // Initial load class
+    window.addEventListener('load', () => {
+      const fc = document.getElementById('form-container');
+      if (fc) fc.classList.add('loaded');
+    });
   </script>
 </body>
 
