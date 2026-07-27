@@ -4,13 +4,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ErgoAnálise – Consultoria Estratégica em Ergonomia</title>
-  <link rel="icon" href="ICON.png" type="image/png">
+  <title>Riscos Psicossociais, NR-01 e Ergonomia | ErgoAnálise</title>
+  <meta name="description"
+    content="Consultoria em ergonomia e riscos psicossociais para NR-01 e NR-17: AET, AEP, ARP, PGR/GRO, documentação de SST, CIPA, treinamentos e clima organizacional. Vale do Paraíba, Litoral Norte, Baixada Santista, Grande SP — e online em todo o Brasil.">
+  <meta name="author" content="ErgoAnálise Consultoria Estratégica">
+  <link rel="canonical" href="https://ergoanalise.com.br/">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / compartilhamento em WhatsApp e LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="ErgoAnálise">
+  <meta property="og:title" content="ErgoAnálise – Ergonomia, NR-01 e Riscos Psicossociais">
+  <meta property="og:description"
+    content="Sua empresa precisa incluir os riscos psicossociais no PGR. Cuidamos do diagnóstico, da documentação e do plano de ação — com rigor técnico e escuta clínica.">
+  <meta property="og:url" content="https://ergoanalise.com.br/">
+  <meta property="og:image" content="https://ergoanalise.com.br/og-ergoanalise.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Logotipo da ErgoAnálise">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.png" type="image/png" sizes="180x180">
+  <link rel="apple-touch-icon" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap"
     rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "ErgoAnálise Consultoria Estratégica",
+    "description": "Consultoria em ergonomia, NR-01, NR-17 e gestão de riscos psicossociais no trabalho.",
+    "url": "https://ergoanalise.com.br/",
+    "image": "https://ergoanalise.com.br/og-ergoanalise.png",
+    "telephone": "+55-11-98385-3451",
+    "email": "apoio.consultoria.10@gmail.com",
+    "priceRange": "$$",
+    "founder": { "@type": "Person", "name": "Livia Escobar" },
+    "areaServed": [
+      { "@type": "Place", "name": "Vale do Paraíba, SP" },
+      { "@type": "Place", "name": "Litoral Norte, SP" },
+      { "@type": "Place", "name": "Baixada Santista, SP" },
+      { "@type": "Place", "name": "Região Metropolitana de São Paulo" },
+      { "@type": "Country", "name": "Brasil (atendimento online)" }
+    ],
+    "knowsAbout": ["NR-01", "NR-17", "PGR", "GRO", "Riscos psicossociais", "Ergonomia", "CIPA", "Lei 14.831"]
+  }
+  </script>
+
   <style>
     :root {
       --ink: #0F1C22;
@@ -181,7 +226,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 2rem;
+      gap: 1.8rem;
     }
 
     .mobile-menu.open {
@@ -192,7 +237,7 @@
       color: var(--white);
       text-decoration: none;
       font-family: var(--font-display);
-      font-size: 2rem;
+      font-size: 1.9rem;
       font-weight: 300;
       transition: color 0.2s;
     }
@@ -218,7 +263,6 @@
       overflow: hidden;
     }
 
-    /* Geometric background shapes inspired by the reference art */
     .hero-geo::before {
       content: '';
       position: absolute;
@@ -315,7 +359,7 @@
       position: relative;
       z-index: 2;
       padding: 0 4vw;
-      max-width: 700px;
+      max-width: 720px;
       margin-left: max(4vw, calc(50vw - 650px));
       padding-top: 8rem;
       padding-bottom: 4rem;
@@ -369,12 +413,33 @@
     .hero-sub {
       font-size: 1.05rem;
       color: rgba(255, 255, 255, 0.65);
-      max-width: 520px;
-      margin-bottom: 2.5rem;
+      max-width: 540px;
+      margin-bottom: 2rem;
       font-weight: 300;
       line-height: 1.7;
       opacity: 0;
       animation: fadeUp 0.9s var(--ease-out-expo) 0.5s forwards;
+    }
+
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2.2rem;
+      opacity: 0;
+      animation: fadeUp 0.9s var(--ease-out-expo) 0.58s forwards;
+    }
+
+    .hero-chip {
+      font-family: var(--font-mono);
+      font-size: 0.63rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(108, 141, 124, 0.4);
+      border-radius: 99px;
+      padding: 0.32rem 0.85rem;
+      white-space: nowrap;
     }
 
     .hero-actions {
@@ -547,7 +612,7 @@
     .section-lead {
       font-size: 1.05rem;
       color: var(--text-muted);
-      max-width: 560px;
+      max-width: 580px;
       line-height: 1.75;
       font-weight: 300;
       margin-top: 1rem;
@@ -579,6 +644,70 @@
 
     .reveal-delay-4 {
       transition-delay: 0.4s;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .reveal,
+      .hero-eyebrow,
+      .hero-title,
+      .hero-sub,
+      .hero-chips,
+      .hero-actions {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+        transition: none !important;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+    /* ── FAIXA DE NÚMEROS ── */
+    #numeros {
+      background: var(--teal-dark);
+      padding: 3.5rem 4vw;
+    }
+
+    .numeros-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .numero {
+      background: var(--teal-dark);
+      padding: 2rem 1.6rem;
+      text-align: center;
+    }
+
+    .numero-valor {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.6vw, 2.9rem);
+      font-weight: 300;
+      color: var(--sand);
+      line-height: 1;
+    }
+
+    .numero-txt {
+      margin-top: 0.8rem;
+      font-size: 0.86rem;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.65;
+    }
+
+    .numero-fonte {
+      margin-top: 0.7rem;
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.35);
     }
 
     /* ── CENÁRIO ATUAL ── */
@@ -764,6 +893,14 @@
       line-height: 1.75;
     }
 
+    .solucoes-nota {
+      margin-top: 2.5rem;
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.7;
+      max-width: 720px;
+    }
+
     /* ── METODOLOGIA ── */
     #metodologia {
       padding: 8rem 4vw;
@@ -828,12 +965,198 @@
       color: var(--ink);
       margin-bottom: 0.7rem;
       position: relative;
+      padding-right: 3rem;
     }
 
     .step-item p {
       font-size: 0.88rem;
       color: var(--text-muted);
       line-height: 1.7;
+    }
+
+    .metodologia-footer {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.5rem;
+      justify-content: space-between;
+    }
+
+    .metodologia-footer p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* ── DÚVIDAS / FAQ ── */
+    #duvidas {
+      padding: 8rem 4vw;
+      background: var(--off-white);
+    }
+
+    .duvidas-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .faq-list {
+      margin-top: 3rem;
+      border-top: 1px solid rgba(41, 78, 61, 0.14);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(41, 78, 61, 0.14);
+      background: var(--white);
+    }
+
+    .faq-item summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 1.4rem 3.5rem 1.4rem 1.8rem;
+      font-family: var(--font-display);
+      font-size: 1.18rem;
+      font-weight: 600;
+      color: var(--ink);
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary:hover {
+      color: var(--forest);
+    }
+
+    .faq-item summary::after {
+      content: '+';
+      position: absolute;
+      right: 1.6rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--amber);
+      line-height: 1;
+    }
+
+    .faq-item[open] summary::after {
+      content: '–';
+    }
+
+    .faq-item[open] summary {
+      color: var(--forest);
+    }
+
+    .faq-answer {
+      padding: 0 1.8rem 1.8rem;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+    }
+
+    .faq-answer strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .faq-answer p+p {
+      margin-top: 0.9rem;
+    }
+
+    .faq-cite {
+      display: block;
+      margin-top: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+
+    .duvidas-cta {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .duvidas-cta p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+
+    /* ── SELO / LEI 14.831 ── */
+    #selo {
+      padding: 7rem 4vw;
+      background: var(--cream);
+    }
+
+    .selo-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .selo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-top: 2.5rem;
+    }
+
+    .selo-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-top: 1.8rem;
+    }
+
+    .selo-list li {
+      display: flex;
+      gap: 0.9rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    .selo-list li::before {
+      content: '✓';
+      color: var(--rust);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .selo-box {
+      background: var(--forest);
+      color: var(--white);
+      padding: 2.8rem;
+    }
+
+    .selo-box h3 {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+
+    .selo-box h3 em {
+      color: var(--sand);
+      font-style: italic;
+    }
+
+    .selo-box p {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.8;
+    }
+
+    .selo-box p+p {
+      margin-top: 1rem;
     }
 
     /* ── DESENVOLVIMENTO HUMANO ── */
@@ -930,40 +1253,74 @@
 
     .regioes-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 4rem;
       align-items: start;
       margin-top: 3rem;
     }
 
-    .regioes-text p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.8;
+    .regioes-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
     }
 
-    .regioes-text .badge-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1.5rem;
-    }
-
-    .badge {
+    .regiao-card {
       background: var(--white);
-      border: 1px solid rgba(41, 78, 61, 0.15);
-      padding: 0.3rem 0.8rem;
-      font-size: 0.75rem;
-      color: var(--forest);
-      font-weight: 500;
-      border-radius: 99px;
-      transition: all 0.2s;
-      white-space: nowrap;
+      border: 1px solid rgba(41, 78, 61, 0.12);
+      padding: 1.4rem 1.5rem;
+      transition: box-shadow 0.3s;
     }
 
-    .badge:hover {
-      background: var(--forest);
-      color: var(--white);
+    .regiao-card:hover {
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    .regiao-card h4 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--forest);
+      margin-bottom: 0.3rem;
+    }
+
+    .regiao-card>p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .regiao-card details {
+      margin-top: 0.9rem;
+    }
+
+    .regiao-card summary {
+      cursor: pointer;
+      list-style: none;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rust);
+    }
+
+    .regiao-card summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .regiao-card summary::after {
+      content: ' +';
+    }
+
+    .regiao-card details[open] summary::after {
+      content: ' –';
+    }
+
+    .cidades {
+      margin-top: 0.7rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.85;
     }
 
     .online-box {
@@ -1018,7 +1375,7 @@
     /* ── SOBRE / QUEM SOMOS ── */
     #sobre {
       padding: 8rem 4vw;
-      background: var(--off-white);
+      background: var(--cream);
       position: relative;
       overflow: hidden;
     }
@@ -1082,7 +1439,7 @@
     .sobre-text {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1.4rem;
     }
 
     .sobre-text .sobre-name {
@@ -1133,7 +1490,7 @@
       padding: 1.5rem 2rem;
       background: var(--white);
       border-left: 3px solid var(--amber);
-      margin-top: 0.5rem;
+      margin-top: 0.3rem;
     }
 
     .sobre-quote::before {
@@ -1160,12 +1517,29 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      margin-top: 0.5rem;
+      margin-top: 0.3rem;
+    }
+
+    .badge {
+      background: var(--white);
+      border: 1px solid rgba(41, 78, 61, 0.15);
+      padding: 0.3rem 0.8rem;
+      font-size: 0.75rem;
+      color: var(--forest);
+      font-weight: 500;
+      border-radius: 99px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .badge:hover {
+      background: var(--forest);
+      color: var(--white);
     }
 
     .sobre-credentials .badge {
-      background: var(--cream);
-      border-color: rgba(41, 78, 61, 0.1);
+      background: var(--off-white);
+      border-color: rgba(41, 78, 61, 0.12);
       font-size: 0.72rem;
       font-weight: 500;
       color: var(--forest);
@@ -1219,9 +1593,37 @@
 
     .contato-inner .section-lead {
       color: rgba(255, 255, 255, 0.55);
-      margin: 1rem auto 3rem;
-      max-width: 520px;
+      margin: 1rem auto 2.5rem;
+      max-width: 560px;
       text-align: center;
+    }
+
+    .contato-passos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      text-align: left;
+    }
+
+    .contato-passo {
+      border-top: 1px solid rgba(108, 141, 124, 0.35);
+      padding-top: 1.1rem;
+    }
+
+    .contato-passo span {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      color: var(--amber);
+      text-transform: uppercase;
+    }
+
+    .contato-passo p {
+      margin-top: 0.5rem;
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.62);
+      line-height: 1.65;
     }
 
     .contact-cards {
@@ -1263,165 +1665,6 @@
 
     .contact-card a:hover {
       color: var(--amber);
-    }
-
-    /* ── CHAT ── */
-    #chat-section {
-      padding: 6rem 4vw;
-      background: var(--cream);
-    }
-
-    .chat-inner {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .chat-header {
-      margin-bottom: 2.5rem;
-    }
-
-    .chat-window {
-      background: var(--white);
-      border: 1px solid rgba(41, 78, 61, 0.12);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 8px 60px rgba(0, 0, 0, 0.08);
-    }
-
-    .chat-topbar {
-      background: var(--forest);
-      padding: 1rem 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .chat-avatar {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: var(--amber);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-display);
-      font-size: 1rem;
-      color: var(--white);
-      font-weight: 600;
-      flex-shrink: 0;
-    }
-
-    .chat-topbar-info h4 {
-      color: var(--white);
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .chat-topbar-info span {
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .chat-topbar-info span::before {
-      content: '';
-      display: inline-block;
-      width: 7px;
-      height: 7px;
-      background: #4ade80;
-      border-radius: 50%;
-    }
-
-    .chat-messages {
-      padding: 1.5rem;
-      min-height: 340px;
-      max-height: 460px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      background: var(--off-white);
-    }
-
-    .chat-messages::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    .chat-messages::-webkit-scrollbar-thumb {
-      background: var(--sage);
-      border-radius: 99px;
-    }
-
-    .msg {
-      display: flex;
-      gap: 0.7rem;
-      align-items: flex-start;
-      animation: msgIn 0.4s var(--ease-out-expo) both;
-    }
-
-    @keyframes msgIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .msg.user {
-      flex-direction: row-reverse;
-    }
-
-    .msg-avatar {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--white);
-    }
-
-    .msg.bot .msg-avatar {
-      background: var(--forest);
-    }
-
-    .msg.user .msg-avatar {
-      background: var(--rust);
-    }
-
-    .msg-bubble {
-      max-width: 75%;
-      padding: 0.8rem 1.1rem;
-      border-radius: 12px;
-      font-size: 0.875rem;
-      line-height: 1.6;
-    }
-
-    .msg.bot .msg-bubble {
-      background: var(--white);
-      color: var(--text-main);
-      border-bottom-left-radius: 4px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    }
-
-    .msg.user .msg-bubble {
-      background: var(--forest);
-      color: var(--white);
-      border-bottom-right-radius: 4px;
-    }
-
-    .msg-bubble strong {
-      color: var(--amber);
-      font-weight: 600;
     }
 
     /* ── ORÇAMENTO / FORMULÁRIO ── */
@@ -1515,20 +1758,6 @@
       display: block;
     }
 
-    @media (max-width: 768px) {
-      .form-selector {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-      .iframe-wrapper iframe {
-        height: 1000px;
-      }
-      .iframe-wrapper {
-        min-height: 1000px;
-      }
-    }
-
-
     /* ── WHATSAPP FLOAT ── */
     .wpp-float {
       position: fixed;
@@ -1561,18 +1790,6 @@
       opacity: 1;
       transform: translateX(0);
       pointer-events: auto;
-    }
-
-    @keyframes wppPulse {
-
-      0%,
-      100% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.04);
-      }
     }
 
     .wpp-btn {
@@ -1647,6 +1864,15 @@
       line-height: 1.7;
     }
 
+    .footer-meta a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .footer-meta a:hover {
+      color: var(--amber);
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .sobre-grid {
@@ -1697,9 +1923,23 @@
         grid-template-columns: 1fr;
       }
 
+      .selo-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
       .regioes-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
+      }
+
+      .numeros-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contato-passos {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
       }
 
       .contact-cards {
@@ -1716,6 +1956,21 @@
       }
     }
 
+    @media (max-width: 768px) {
+      .form-selector {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .iframe-wrapper iframe {
+        height: 1000px;
+      }
+
+      .iframe-wrapper {
+        min-height: 1000px;
+      }
+    }
+
     @media (max-width: 600px) {
       .hero-title {
         font-size: 2.5rem;
@@ -1727,20 +1982,26 @@
 
       .step-item {
         border-right: none !important;
+        padding: 2rem;
       }
 
       .step-item:last-child {
         border-bottom: none;
       }
 
+      .regioes-cards {
+        grid-template-columns: 1fr;
+      }
+
       #cenario,
       #solucoes,
       #metodologia,
+      #duvidas,
+      #selo,
       #desenvolvimento,
       #regioes,
       #sobre,
-      #contato,
-      #chat-section {
+      #contato {
         padding: 5rem 5vw;
       }
 
@@ -1748,8 +2009,14 @@
         padding: 1.8rem;
       }
 
-      .step-item {
+      .selo-box,
+      .online-box {
         padding: 2rem;
+      }
+
+      .faq-item summary {
+        font-size: 1.05rem;
+        padding-right: 3rem;
       }
     }
   </style>
@@ -1761,13 +2028,12 @@
   <nav id="navbar">
     <div class="nav-logo">Ergo<span>Análise</span></div>
     <ul class="nav-links">
-      <li><a href="#cenario" onclick="navTo('cenario',event)">O Cenário</a></li>
       <li><a href="#solucoes" onclick="navTo('solucoes',event)">Soluções</a></li>
-      <li><a href="#metodologia" onclick="navTo('metodologia',event)">Metodologia</a></li>
-      <li><a href="#desenvolvimento" onclick="navTo('desenvolvimento',event)">Desenvolvimento</a></li>
-      <li><a href="#sobre" onclick="navTo('sobre',event)">Quem Somos</a></li>
+      <li><a href="#metodologia" onclick="navTo('metodologia',event)">Como funciona</a></li>
+      <li><a href="#duvidas" onclick="navTo('duvidas',event)">Dúvidas</a></li>
+      <li><a href="#sobre" onclick="navTo('sobre',event)">Quem somos</a></li>
       <li><a href="#orcamento" onclick="navTo('orcamento',event)">Orçamento</a></li>
-      <li><a href="#contato" onclick="navTo('contato',event)" class="nav-cta">Fale Conosco</a></li>
+      <li><a href="#contato" onclick="navTo('contato',event)" class="nav-cta">Fale conosco</a></li>
     </ul>
     <div class="hamburger" id="hamburger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
@@ -1776,14 +2042,13 @@
 
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#cenario" onclick="closeMenu();navTo('cenario',event)">O Cenário</a>
     <a href="#solucoes" onclick="closeMenu();navTo('solucoes',event)">Soluções</a>
-    <a href="#metodologia" onclick="closeMenu();navTo('metodologia',event)">Metodologia</a>
-    <a href="#desenvolvimento" onclick="closeMenu();navTo('desenvolvimento',event)">Desenvolvimento</a>
-    <a href="#sobre" onclick="closeMenu();navTo('sobre',event)">Quem Somos</a>
+    <a href="#metodologia" onclick="closeMenu();navTo('metodologia',event)">Como funciona</a>
+    <a href="#duvidas" onclick="closeMenu();navTo('duvidas',event)">Dúvidas</a>
+    <a href="#regioes" onclick="closeMenu();navTo('regioes',event)">Onde atuamos</a>
+    <a href="#sobre" onclick="closeMenu();navTo('sobre',event)">Quem somos</a>
     <a href="#orcamento" onclick="closeMenu();navTo('orcamento',event)">Orçamento</a>
-
-    <a href="#contato" onclick="closeMenu();navTo('contato',event)">Fale Conosco</a>
+    <a href="#contato" onclick="closeMenu();navTo('contato',event)">Fale conosco</a>
   </div>
 
   <!-- HERO -->
@@ -1795,30 +2060,62 @@
       <div class="hero-line-v"></div>
     </div>
     <div class="hero-content">
-      <div class="hero-eyebrow">Consultoria Estratégica</div>
+      <div class="hero-eyebrow">Consultoria Estratégica em SST</div>
       <h1 class="hero-title">
         <em>Gestão Integrada</em>
         <strong>NR-01 &amp; NR-17</strong>
         Ergonomia e Fatores Psicossociais
       </h1>
       <p class="hero-sub">
-        Análises técnicas que constroem ambientes de trabalho seguros, produtivos e em conformidade com a legislação —
-        unindo rigor técnico à escuta clínica.
+        O PGR da sua empresa precisa incluir os riscos psicossociais. Cuidamos do diagnóstico, da documentação e do
+        plano de ação — com rigor técnico e escuta clínica.
       </p>
+      <div class="hero-chips">
+        <span class="hero-chip">AET · AEP · ARP</span>
+        <span class="hero-chip">PGR / GRO</span>
+        <span class="hero-chip">Documentação de SST</span>
+        <span class="hero-chip">CIPA</span>
+        <span class="hero-chip">Treinamentos</span>
+        <span class="hero-chip">Clima e cultura</span>
+      </div>
       <div class="hero-actions">
-        <a href="https://wa.me/5511983853451" target="_blank" class="btn btn-primary">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+        <a href="https://wa.me/5511983853451" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path
               d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
           </svg>
-          Falar no WhatsApp
+          Diagnóstico gratuito no WhatsApp
         </a>
-        <a href="#solucoes" class="btn btn-ghost">Conhecer Soluções</a>
+        <a href="#solucoes" class="btn btn-ghost">Ver o que entregamos</a>
       </div>
     </div>
     <div class="hero-scroll">
       <span>scroll</span>
       <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- FAIXA DE NÚMEROS -->
+  <section id="numeros">
+    <div class="numeros-grid">
+      <div class="numero">
+        <div class="numero-valor">546.254</div>
+        <p class="numero-txt">benefícios concedidos por transtornos mentais em um único ano — o motivo de a fiscalização
+          ter voltado os olhos para os riscos psicossociais.</p>
+        <div class="numero-fonte">Previdência Social · 2025</div>
+      </div>
+      <div class="numero">
+        <div class="numero-valor">Desde 1978</div>
+        <p class="numero-txt">os riscos psicossociais já estão previstos na NR-17. A NR-01 não criou a obrigação: ela
+          tornou a cobrança explícita dentro do PGR.</p>
+        <div class="numero-fonte">NR-17 · NR-01 item 1.5</div>
+      </div>
+      <div class="numero">
+        <div class="numero-valor">Toda empresa</div>
+        <p class="numero-txt">com empregado precisa de PGR — abrangendo riscos físicos, químicos, biológicos, de
+          acidentes, ergonômicos e psicossociais. Só o MEI é dispensado.</p>
+        <div class="numero-fonte">NR-01 itens 1.5 e 1.8</div>
+      </div>
     </div>
   </section>
 
@@ -1829,31 +2126,31 @@
         <div class="section-eyebrow">O Cenário Atual</div>
         <h2 class="section-title">Sua empresa está <em>preparada?</em></h2>
         <p class="section-lead">
-          O não cumprimento das normas regulamentadoras expõe sua organização a riscos legais, financeiros e humanos. O
-          relógio está correndo.
+          Três frentes de risco que a maioria das empresas só descobre quando já virou multa, processo ou afastamento.
         </p>
         <div style="margin-top:2.5rem;">
-          <a href="https://wa.me/5511983853451" target="_blank" class="btn btn-primary">Diagnóstico gratuito</a>
+          <a href="https://wa.me/5511983853451" target="_blank" rel="noopener" class="btn btn-primary">Diagnóstico
+            gratuito</a>
         </div>
       </div>
       <div class="cenario-right">
         <div class="problem-card reveal reveal-delay-1">
           <div class="card-label">NR-01 / PGR</div>
-          <h3>Conformidade Legal</h3>
-          <p>A atualização da NR-01 exige que toda empresa inclua os riscos psicossociais no seu Programa de
-            Gerenciamento de Riscos. Sua organização está em não conformidade — e o relógio está correndo.</p>
+          <h3>Conformidade legal</h3>
+          <p>O PGR precisa contemplar os riscos psicossociais, com inventário, plano de ação e revisão a cada dois anos.
+            Documento desatualizado é o mesmo que documento inexistente diante da fiscalização.</p>
         </div>
         <div class="problem-card reveal reveal-delay-2">
-          <div class="card-label">Prevenção de Multas e Processos</div>
-          <h3>Segurança Jurídica</h3>
-          <p>Ações trabalhistas por assédio, Burnout e adoecimento mental crescem a cada ano. Um laudo técnico robusto é
-            a melhor defesa — e a prova de que sua empresa age com responsabilidade.</p>
+          <div class="card-label">Terceirizados e PJ</div>
+          <h3>Risco que não é só do seu CLT</h3>
+          <p>A contratante responde pela organização e pelo ambiente de trabalho de quem atua nas suas dependências —
+            inclusive PJ e MEI. Incluí-los no PGR não cria vínculo: é prova de boa-fé.</p>
         </div>
         <div class="problem-card reveal reveal-delay-3">
-          <div class="card-label">Burnout e Absenteísmo</div>
-          <h3>Produtividade em Risco</h3>
-          <p>Colaboradores esgotados custam caro: presenteísmo, turnover, afastamentos. Identificar e mitigar os fatores
-            de risco psicossocial é investir diretamente na saúde financeira do negócio.</p>
+          <div class="card-label">Burnout e absenteísmo</div>
+          <h3>Produtividade em risco</h3>
+          <p>Presenteísmo, turnover e afastamentos custam caro e não aparecem no balanço com esse nome. Mapear os fatores
+            de risco é decisão financeira, não só jurídica.</p>
         </div>
       </div>
     </div>
@@ -1864,16 +2161,16 @@
     <div class="solucoes-bg"></div>
     <div class="solucoes-inner">
       <div class="solucoes-header reveal">
-        <div class="section-eyebrow">Soluções Técnicas</div>
-        <h2 class="section-title" style="color:var(--white)">O que <em>entregamos</em></h2>
-        <p class="section-lead" style="color:rgba(255,255,255,0.55)">
-          Um ecossistema completo de avaliação e gestão, unindo rigor técnico à escuta clínica.
+        <div class="section-eyebrow">Campos de Atuação</div>
+        <h2 class="section-title">O que <em>entregamos</em></h2>
+        <p class="section-lead">
+          Do diagnóstico ao documento assinado, do documento à mudança real no dia a dia da equipe.
         </p>
       </div>
       <div class="solucoes-grid">
         <div class="sol-card reveal reveal-delay-1">
           <div class="sol-number">01</div>
-          <svg class="sol-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="sol-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <rect x="8" y="6" width="24" height="28" rx="2" stroke="#6C8D7C" stroke-width="1.5" />
             <line x1="14" y1="14" x2="26" y2="14" stroke="#6C8D7C" stroke-width="1.5" />
             <line x1="14" y1="20" x2="26" y2="20" stroke="#6C8D7C" stroke-width="1.5" />
@@ -1881,35 +2178,76 @@
           </svg>
           <div class="sol-subtitle">Análise Ergonômica</div>
           <h3>AET &amp; AEP</h3>
-          <p>Avaliação completa do ambiente físico e organizacional do trabalho. Mapeamos postos, fluxos e condições
-            biomecânicas com olhar clínico e técnico — conforme as diretrizes mais atualizadas da especialização em
-            Ergonomia.</p>
+          <p>Mapeamento de postos, fluxos e condições biomecânicas — o trabalho real, não o descrito no manual. Presencial
+            ou remoto, inclusive para home office.</p>
         </div>
         <div class="sol-card reveal reveal-delay-2">
           <div class="sol-number">02</div>
-          <svg class="sol-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="sol-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="20" cy="20" r="12" stroke="#6C8D7C" stroke-width="1.5" />
             <path d="M20 14v6l4 4" stroke="#6C8D7C" stroke-width="1.5" stroke-linecap="round" />
           </svg>
           <div class="sol-subtitle">Avaliação de Riscos Psicossociais</div>
           <h3>ARP</h3>
-          <p>Aqui está o diferencial ErgoAnálise: nossa ARP não é um simples check-list; é uma análise com escuta ativa
-            da organização do trabalho e das relações interpessoais — conduzida por uma gestora especialista em
-            Ergonomia.</p>
+          <p>Nosso diferencial: não é check-list. É escuta ativa da organização do trabalho e das relações — o que
+            questionário nenhum captura sozinho.</p>
         </div>
         <div class="sol-card reveal reveal-delay-3">
           <div class="sol-number">03</div>
-          <svg class="sol-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="sol-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="20" cy="20" r="12" stroke="#6C8D7C" stroke-width="1.5" />
             <path d="M16 20l3 3 6-6" stroke="#6C8D7C" stroke-width="1.5" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
           <div class="sol-subtitle">Gerenciamento de Riscos Ocupacionais</div>
-          <h3>GRO</h3>
-          <p>Integramos riscos psicossociais e ergonômicos em um único plano de gerenciamento, alinhado ao PGR da sua
-            empresa. Conformidade e estratégia em um só documento.</p>
+          <h3>PGR / GRO</h3>
+          <p>Planejamento e gestão do programa: inventário de riscos, plano de ação com prazos e responsáveis, revisão
+            periódica e integração das empresas contratadas.</p>
+        </div>
+        <div class="sol-card reveal reveal-delay-1">
+          <div class="sol-number">04</div>
+          <svg class="sol-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 8h12l6 6v18a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2z" stroke="#6C8D7C"
+              stroke-width="1.5" />
+            <path d="M24 8v6h6" stroke="#6C8D7C" stroke-width="1.5" />
+            <line x1="15" y1="22" x2="25" y2="22" stroke="#6C8D7C" stroke-width="1.5" />
+            <line x1="15" y1="27" x2="22" y2="27" stroke="#6C8D7C" stroke-width="1.5" />
+          </svg>
+          <div class="sol-subtitle">Documentação de SST</div>
+          <h3>PGR · PCMSO · LTCAT · OS</h3>
+          <p>Elaboração, emissão e revisão dos documentos, sempre com o profissional habilitado que cada um exige. Também
+            analisamos contratos PJ e Ordens de Serviço frente à atividade real.</p>
+        </div>
+        <div class="sol-card reveal reveal-delay-2">
+          <div class="sol-number">05</div>
+          <svg class="sol-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="15" cy="15" r="4" stroke="#6C8D7C" stroke-width="1.5" />
+            <circle cx="26" cy="17" r="3.2" stroke="#6C8D7C" stroke-width="1.5" />
+            <path d="M8 30v-2a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v2" stroke="#6C8D7C" stroke-width="1.5"
+              stroke-linecap="round" />
+            <path d="M24 30v-1.5a5 5 0 0 1 4-4.9" stroke="#6C8D7C" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          <div class="sol-subtitle">Comissão Interna</div>
+          <h3>CIPA</h3>
+          <p>Implantação, condução do processo eleitoral e apoio contínuo à comissão — para a CIPA sair do papel e virar
+            canal real de percepção de risco.</p>
+        </div>
+        <div class="sol-card reveal reveal-delay-3">
+          <div class="sol-number">06</div>
+          <svg class="sol-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M10 30V18M18 30V12M26 30V22M34 30V8" stroke="#6C8D7C" stroke-width="1.5" stroke-linecap="round" />
+            <line x1="6" y1="33" x2="36" y2="33" stroke="#6C8D7C" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          <div class="sol-subtitle">Diagnóstico Organizacional</div>
+          <h3>Clima e cultura</h3>
+          <p>Avaliação de clima e cultura para enxergar o que sustenta ou sabota os resultados — e alimentar o plano de
+            ação com dado, não com achismo.</p>
         </div>
       </div>
+      <p class="solucoes-nota reveal">
+        Documentos que exigem assinatura de profissional legalmente habilitado (como PCMSO e LTCAT) são emitidos em
+        conjunto com o médico ou engenheiro do trabalho responsável. Você recebe tudo pronto, por um interlocutor só.
+      </p>
     </div>
   </section>
 
@@ -1917,44 +2255,178 @@
   <section id="metodologia">
     <div class="metodologia-inner">
       <div class="metodologia-header reveal">
-        <div class="section-eyebrow">Como Trabalhamos</div>
-        <h2 class="section-title">Metodologia <em>ErgoAnálise</em></h2>
+        <div class="section-eyebrow">Na Prática</div>
+        <h2 class="section-title">Como a gente <em>trabalha</em></h2>
         <p class="section-lead">
-          Nossa análise foca no <strong>ambiente e na organização do trabalho</strong> — não apenas no indivíduo. Seis
-          etapas para um diagnóstico completo e ações efetivas.
+          Seis passos, na ordem em que acontecem. Nossa análise foca no <strong>ambiente e na organização do
+            trabalho</strong> — não no indivíduo.
         </p>
       </div>
       <div class="steps-grid">
         <div class="step-item reveal reveal-delay-1">
           <span class="step-num">01</span>
-          <h3>Identificação</h3>
-          <p>Mapeamento dos fatores de risco no ambiente de trabalho — não apenas no indivíduo.</p>
+          <h3>Diagnóstico</h3>
+          <p>Análise da documentação que já existe, da estrutura da empresa e das exigências legais do seu ramo.</p>
         </div>
         <div class="step-item reveal reveal-delay-2">
           <span class="step-num">02</span>
-          <h3>Avaliação</h3>
-          <p>Análise qualitativa e quantitativa com instrumentos validados e escuta clínica aprofundada.</p>
+          <h3>Campo</h3>
+          <p>Avaliação ambiental, entrevistas e pesquisa de clima e cultura — para validar o que existe ou construir o
+            que falta.</p>
         </div>
         <div class="step-item reveal reveal-delay-3">
           <span class="step-num">03</span>
-          <h3>Matriz de Risco</h3>
-          <p>Classificação por gravidade e probabilidade para priorizar intervenções com assertividade.</p>
+          <h3>Documentação</h3>
+          <p>Elaboração ou revisão de PGR, PCMSO, LTCAT e demais documentos exigidos, com inventário e matriz de risco.
+          </p>
         </div>
         <div class="step-item reveal reveal-delay-1">
           <span class="step-num">04</span>
-          <h3>Diagnóstico</h3>
-          <p>Relatório técnico completo com análise da organização do trabalho e seus efeitos sobre os colaboradores.
+          <h3>Contratos e OS</h3>
+          <p>Análise dos contratos PJ e das Ordens de Serviço para equiparar o que está no papel com a atividade real.
           </p>
         </div>
         <div class="step-item reveal reveal-delay-2">
           <span class="step-num">05</span>
-          <h3>Sugestões</h3>
-          <p>Recomendações práticas e viáveis, adaptadas à realidade e ao orçamento da empresa.</p>
+          <h3>Plano de ação</h3>
+          <p>Medidas priorizadas, com prazo, responsável e indicador. Recomendações viáveis para a realidade e o
+            orçamento da empresa.</p>
         </div>
         <div class="step-item reveal reveal-delay-3">
           <span class="step-num">06</span>
-          <h3>Plano de Ação</h3>
-          <p>Cronograma de implementação com metas, responsáveis e indicadores de acompanhamento.</p>
+          <h3>CIPA e continuidade</h3>
+          <p>Implantação e acompanhamento da CIPA, comunicação aos trabalhadores e revisão contínua do programa.</p>
+        </div>
+      </div>
+      <div class="metodologia-footer reveal">
+        <p>Não entregamos um PDF e desaparecemos: o programa é revisado a cada dois anos — e sempre que houver
+          acidente, mudança organizacional, falha nas medidas de controle ou alteração legal.</p>
+        <a href="https://wa.me/5511983853451" target="_blank" rel="noopener" class="btn btn-primary">Quero começar pelo
+          passo 1</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DÚVIDAS / FAQ -->
+  <section id="duvidas">
+    <div class="duvidas-inner">
+      <div class="reveal">
+        <div class="section-eyebrow">Antes de Contratar</div>
+        <h2 class="section-title">As dúvidas que <em>travam</em> a decisão</h2>
+        <p class="section-lead">
+          As seis perguntas que mais ouvimos — respondidas direto, com o item da norma ao lado.
+        </p>
+      </div>
+
+      <div class="faq-list reveal reveal-delay-1">
+        <details class="faq-item">
+          <summary>Minha pesquisa de clima já não resolve isso?</summary>
+          <div class="faq-answer">
+            <p>Não. São coisas diferentes. A <strong>pesquisa de clima mede satisfação</strong>; o <strong>mapeamento de
+                riscos avalia perigos concretos</strong> do ambiente físico e da organização do trabalho, com
+              classificação por gravidade e probabilidade.</p>
+            <p>Clima bom não prova conformidade. E clima ruim, sozinho, não diz onde está o risco.</p>
+            <span class="faq-cite">NR-01 · item 1.5.4</span>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Posso deixar o SST com o RH ou o DP?</summary>
+          <div class="faq-answer">
+            <p>Pode, mas cobra caro depois. SST é uma área com escopo próprio, como financeiro ou operação. Jogar isso em
+              cima de quem já tem outra função tende a dois resultados: o tema fica em segundo plano e o colaborador se
+              desestimula por atuar fora do escopo dele.</p>
+            <p>Há ainda o risco de <strong>caracterização de acúmulo de função</strong>. O tamanho da estrutura de SST
+              depende do seu ramo, do número de funcionários e do grau de risco.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Tenho PJ e terceirizados. Preciso incluir no meu PGR?</summary>
+          <div class="faq-answer">
+            <p>Sim. A responsabilidade pela organização e pelo ambiente de trabalho é de quem contrata. A contratante
+              deve integrar ao seu PGR as medidas de prevenção das contratadas e comunicar os riscos a todos que atuam
+              nas suas dependências — incluindo MEI e sócios de microempresas.</p>
+            <p>Isso <strong>não cria vínculo empregatício</strong>. É obrigação de gestão, e é prova de boa-fé: todo
+              trabalhador tem direito de saber a que riscos está exposto.</p>
+            <span class="faq-cite">NR-01 · itens 1.5.8 e 1.8</span>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Riscos psicossociais são novidade da NR-01?</summary>
+          <div class="faq-answer">
+            <p>Não. Eles estão contemplados na <strong>NR-17 desde 1978</strong>. O que mudou foi a cobrança: agora
+              precisam constar de forma explícita no Programa de Gerenciamento de Riscos.</p>
+            <p>E atenção a um mal-entendido comum: risco psicossocial <strong>não é o estado psicológico do
+                trabalhador</strong>. São fatores da organização do trabalho — jornada, metas, autonomia, comunicação,
+              relações — que podem também nascer de condições físicas do ambiente.</p>
+            <span class="faq-cite">NR-17 · NR-01 item 1.5</span>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Sou MEI, ME ou EPP. Preciso de PGR?</summary>
+          <div class="faq-answer">
+            <p>O <strong>MEI está dispensado</strong> de elaborar o PGR. ME e EPP têm tratamento diferenciado, conforme o
+              grau de risco da atividade.</p>
+            <p>Mas há a outra ponta: se você é MEI ou sócio de microempresa e atua nas dependências de uma contratante, é
+              ela que deve incluir você nas ações de prevenção dela. Vale confirmar isso antes de assinar contrato.</p>
+            <span class="faq-cite">NR-01 · item 1.8</span>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Fiz o documento uma vez. Preciso refazer?</summary>
+          <div class="faq-answer">
+            <p>A avaliação de riscos é contínua e deve ser revisada <strong>a cada dois anos</strong> — ou antes disso em
+              seis situações: após implantar medidas preventivas; em mudança tecnológica ou organizacional; ao
+              identificar falha nas medidas de controle; após acidente ou doença relacionada ao trabalho; em alteração
+              legal; ou por solicitação justificada de trabalhadores ou da CIPA.</p>
+            <p>O histórico de atualizações deve ser guardado por, no mínimo, <strong>20 anos</strong>.</p>
+            <span class="faq-cite">NR-01 · itens 1.5.4.4.6 e 1.5.7.3.2</span>
+          </div>
+        </details>
+      </div>
+
+      <div class="duvidas-cta reveal reveal-delay-2">
+        <p>Ficou uma dúvida que não está aqui? Manda pelo WhatsApp — respondemos sem compromisso.</p>
+        <a href="https://wa.me/5511983853451" target="_blank" rel="noopener" class="btn btn-primary">Tirar minha
+          dúvida</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELO / LEI 14.831 -->
+  <section id="selo">
+    <div class="selo-inner">
+      <div class="reveal">
+        <div class="section-eyebrow">De Obrigação a Diferencial</div>
+        <h2 class="section-title">Conformidade que também <em>vende</em></h2>
+      </div>
+      <div class="selo-grid">
+        <div class="reveal reveal-delay-1">
+          <p class="section-lead" style="margin-top:0;">
+            A <strong>Lei 14.831/2024</strong> criou o Certificado de Empresa Promotora da Saúde Mental. Quem cumpre os
+            requisitos ganha um selo público — e o mesmo trabalho que tira sua empresa do risco legal passa a servir de
+            argumento comercial.
+          </p>
+          <ul class="selo-list">
+            <li>Programas de promoção da saúde mental no ambiente de trabalho</li>
+            <li>Acesso a apoio psicológico e psiquiátrico para os trabalhadores</li>
+            <li>Campanhas e treinamentos de conscientização, inclusive voltados à saúde mental da mulher</li>
+            <li>Capacitação de lideranças</li>
+            <li>Combate à discriminação e ao assédio em todas as suas formas</li>
+            <li>Avaliação e ajuste regular das ações implementadas</li>
+          </ul>
+        </div>
+        <div class="selo-box reveal reveal-delay-2">
+          <h3>Vale a pergunta <em>de negócio</em></h3>
+          <p>Seus clientes e fornecedores exigem conformidade com a lei? Sua empresa já perdeu — ou pode perder — um
+            contrato por não ter o gerenciamento de riscos em dia?</p>
+          <p>Qual é a nota da sua empresa no Glassdoor? Um selo como o GPTW ou o reconhecimento por promover saúde
+            mental deixa a vaga mais atraente para os bons profissionais que você quer contratar.</p>
+          <p>Atuar segundo as normas não é custo de compliance: é valor no que o seu RH já faz.</p>
         </div>
       </div>
     </div>
@@ -1968,14 +2440,14 @@
         <div class="section-eyebrow">Além da Conformidade</div>
         <h2 class="section-title">Desenvolvimento <em>Humano</em></h2>
         <p class="section-lead">
-          Serviços que transformam a obrigação legal em oportunidade de crescimento — e garantem a sustentabilidade dos
-          resultados.
+          O documento resolve a fiscalização. Isto aqui é o que garante que o resultado se sustente.
         </p>
       </div>
       <div class="desenv-grid">
         <div class="desenv-card reveal reveal-delay-1">
           <div class="icon-wrap">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CF7E15" stroke-width="1.8">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CF7E15" stroke-width="1.8"
+              aria-hidden="true">
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
               <circle cx="9" cy="7" r="4" />
               <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
@@ -1983,29 +2455,31 @@
             </svg>
           </div>
           <h3>Palestras &amp; Workshops</h3>
-          <p>Formações interativas sobre saúde mental no trabalho, prevenção de assédio, comunicação não-violenta e
-            liderança humanizada. Conteúdo adaptado à realidade da sua equipe.</p>
+          <p>Saúde mental no trabalho, prevenção de assédio, comunicação não-violenta e liderança humanizada. Conteúdo
+            adaptado à realidade da sua equipe.</p>
         </div>
         <div class="desenv-card reveal reveal-delay-2">
           <div class="icon-wrap">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CF7E15" stroke-width="1.8">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CF7E15" stroke-width="1.8"
+              aria-hidden="true">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
             </svg>
           </div>
           <h3>Rodas de Conversa</h3>
-          <p>Espaços seguros de escuta e diálogo para fortalecer a cultura organizacional. As rodas promovem
-            pertencimento, reduzem conflitos e abrem canais de comunicação genuínos.</p>
+          <p>Espaço seguro de escuta e diálogo. É onde aparece o que não aparece em questionário — e onde o time começa a
+            confiar no processo.</p>
         </div>
         <div class="desenv-card reveal reveal-delay-3">
           <div class="icon-wrap">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CF7E15" stroke-width="1.8">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CF7E15" stroke-width="1.8"
+              aria-hidden="true">
               <path
                 d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
             </svg>
           </div>
           <h3>Psicoterapia Individual</h3>
-          <p>Atendimento clínico para colaboradores em sofrimento psíquico. Um cuidado real que demonstra o compromisso
-            da empresa com o ser humano por trás do crachá.</p>
+          <p>Atendimento clínico para colaboradores em sofrimento psíquico. Também é um dos requisitos do certificado da
+            Lei 14.831.</p>
         </div>
       </div>
     </div>
@@ -2017,47 +2491,54 @@
       <div class="reveal">
         <div class="section-eyebrow">Abrangência</div>
         <h2 class="section-title">Onde <em>atuamos</em></h2>
+        <p class="section-lead">Presencial em quatro regiões de São Paulo — e online em todo o Brasil, com a mesma
+          qualidade técnica.</p>
       </div>
       <div class="regioes-grid">
-        <div class="regioes-text reveal reveal-delay-1">
-          <p>Atendemos empresas no Vale do Paraíba, Litoral Norte, Baixada Santista e região metropolitana de São Paulo,
-            com atendimento presencial e online.</p>
-          <div class="badge-grid">
-            <span class="badge">São José dos Campos</span>
-            <span class="badge">Jacareí</span>
-            <span class="badge">Guarulhos</span>
-            <span class="badge">Mogi das Cruzes</span>
-            <span class="badge">Suzano</span>
-            <span class="badge">São Bernardo do Campo</span>
-            <span class="badge">Santos</span>
-            <span class="badge">São Vicente</span>
-            <span class="badge">Guarujá</span>
-            <span class="badge">Praia Grande</span>
-            <span class="badge">Cubatão</span>
-            <span class="badge">Bertioga</span>
-            <span class="badge">São Sebastião</span>
-            <span class="badge">Caraguatatuba</span>
-            <span class="badge">Ubatuba</span>
-            <span class="badge">Salesópolis</span>
-            <span class="badge">Santa Branca</span>
-            <span class="badge">Guararema</span>
-            <span class="badge">Jambeiro</span>
-            <span class="badge">Paraibuna</span>
-            <span class="badge">Arujá</span>
-            <span class="badge">Santa Isabel</span>
-            <span class="badge">+ outras</span>
+        <div class="regioes-cards reveal reveal-delay-1">
+          <div class="regiao-card">
+            <h4>Vale do Paraíba</h4>
+            <p>Base da operação, com atendimento presencial em toda a região.</p>
+            <details>
+              <summary>Ver cidades</summary>
+              <div class="cidades">São José dos Campos · Jacareí · Jambeiro · Paraibuna · Santa Branca</div>
+            </details>
+          </div>
+          <div class="regiao-card">
+            <h4>Litoral Norte</h4>
+            <p>Atendimento presencial no litoral paulista.</p>
+            <details>
+              <summary>Ver cidades</summary>
+              <div class="cidades">Caraguatatuba · São Sebastião · Ubatuba · Bertioga</div>
+            </details>
+          </div>
+          <div class="regiao-card">
+            <h4>Baixada Santista</h4>
+            <p>Cobertura completa da região portuária e cidades vizinhas.</p>
+            <details>
+              <summary>Ver cidades</summary>
+              <div class="cidades">Santos · São Vicente · Guarujá · Praia Grande · Cubatão</div>
+            </details>
+          </div>
+          <div class="regiao-card">
+            <h4>Grande SP e Alto Tietê</h4>
+            <p>Região metropolitana e municípios do Alto Tietê.</p>
+            <details>
+              <summary>Ver cidades</summary>
+              <div class="cidades">Guarulhos · Mogi das Cruzes · Suzano · São Bernardo do Campo · Arujá · Santa Isabel ·
+                Guararema · Salesópolis</div>
+            </details>
           </div>
         </div>
         <div class="online-box reveal reveal-delay-2">
           <h3>Atuação <em>Online</em></h3>
-          <p>Atendemos postos de trabalho home-office em todo o Brasil, com a mesma qualidade técnica do atendimento
-            presencial.</p>
+          <p>Para empresas fora dessas regiões e para postos de trabalho em home office, em todo o Brasil.</p>
           <ul class="online-list">
-            <li>Análise Ergonômica Preliminar (AEP) online</li>
-            <li>Avaliação de Riscos Psicossociais (ARP) online</li>
-            <li>Treinamentos individuais ou em grupo online</li>
+            <li>Análise Ergonômica Preliminar (AEP)</li>
+            <li>Avaliação de Riscos Psicossociais (ARP)</li>
+            <li>Treinamentos individuais ou em grupo</li>
             <li>Palestras e workshops remotos</li>
-            <li>Rodas de Conversa virtuais</li>
+            <li>Rodas de conversa virtuais</li>
           </ul>
         </div>
       </div>
@@ -2073,28 +2554,32 @@
       </div>
       <div class="sobre-grid">
         <div class="sobre-photo-wrap reveal reveal-delay-1">
-          <img src="livia-escobar.png" alt="Lívia Escobar – Fundadora da ErgoAnálise" class="sobre-photo"
-            loading="lazy">
+          <img src="livia-escobar.jpg" alt="Livia Escobar, fundadora da ErgoAnálise" class="sobre-photo"
+            loading="lazy" decoding="async">
         </div>
         <div class="sobre-text reveal reveal-delay-2">
-          <div class="sobre-role">Fundadora &amp; Especialista</div>
+          <div class="sobre-role">Fundadora</div>
           <h3 class="sobre-name">Livia <strong>Escobar</strong></h3>
           <p class="sobre-bio">
-            psicanalista especialista em <strong>Ergonomia e Fatores Humanos</strong>, com formação
-            que integra a escuta clínica ao rigor técnico das normas regulamentadoras. Atua há anos
-            transformando ambientes de trabalho em espaços mais saudáveis, produtivos e conformes
-            — porque acredita que cuidar das pessoas é a estratégia mais inteligente de qualquer
-            organização.
+            <strong>Mais de 25 anos dentro de empresas</strong> — atendimento ao cliente, rotinas financeiras,
+            departamento pessoal e área comercial. É desse chão que vem o olhar para o trabalho como ele realmente
+            acontece, e não como está escrito no procedimento.
+          </p>
+          <p class="sobre-bio">
+            Formada em <strong>Psicanálise Clínica e Constelação Sistêmica</strong>, é pós-graduanda em
+            <strong>Ergonomia e Gestão de NR-01</strong> e estudante do curso Técnico em Segurança do Trabalho. Essa
+            combinação é o que sustenta a ARP da ErgoAnálise: escuta clínica de verdade, aplicada ao rigor das normas.
           </p>
           <div class="sobre-quote">
-            <p>Ergonomia de verdade olha para o trabalho real — não para o trabalho prescrito.
-              É nessa diferença que moram os riscos e as oportunidades.</p>
+            <p>Ergonomia de verdade olha para o trabalho real — não para o trabalho prescrito. É nessa diferença que
+              moram os riscos e as oportunidades.</p>
           </div>
           <div class="sobre-credentials">
-            <span class="badge">Especialista em Ergonomia</span>
-            <span class="badge">NR-01 &amp; NR-17</span>
-            <span class="badge">Riscos Psicossociais</span>
-            <span class="badge">Metodologia ErgoAnalise</span>
+            <span class="badge">25+ anos em gestão de empresas</span>
+            <span class="badge">Psicanálise Clínica</span>
+            <span class="badge">Constelação Sistêmica</span>
+            <span class="badge">Pós-graduanda em Ergonomia e NR-01</span>
+            <span class="badge">Técnico em Segurança do Trabalho (em curso)</span>
           </div>
         </div>
       </div>
@@ -2106,32 +2591,48 @@
     <div class="contato-geo"></div>
     <div class="contato-inner">
       <div class="section-eyebrow reveal">Próximo Passo</div>
-      <h2 class="section-title reveal reveal-delay-1">Sua empresa merece <em>mais</em> do que conformidade.</h2>
+      <h2 class="section-title reveal reveal-delay-1">Comece pelo diagnóstico. É <em>gratuito</em>.</h2>
       <p class="section-lead reveal reveal-delay-2">
-        Agende uma consultoria diagnóstica gratuita para entender o que sua empresa precisa para estar em conformidade e
-        proteger seu negócio e seus colaboradores.
+        Uma conversa para entender o que sua empresa já tem, o que falta e o que é prioridade. Sem compromisso e sem
+        proposta de gaveta.
       </p>
+      <div class="contato-passos reveal reveal-delay-2">
+        <div class="contato-passo">
+          <span>01 · Conversa</span>
+          <p>15 a 30 minutos, por WhatsApp ou vídeo, para entender seu momento e seu ramo.</p>
+        </div>
+        <div class="contato-passo">
+          <span>02 · Retorno</span>
+          <p>Você recebe um panorama do que a norma exige de você e do que está faltando.</p>
+        </div>
+        <div class="contato-passo">
+          <span>03 · Proposta</span>
+          <p>Escopo, prazo e valor por escrito. Decide depois, com tudo na mão.</p>
+        </div>
+      </div>
       <div class="contact-cards reveal reveal-delay-2">
         <div class="contact-card">
           <div class="cc-label">Telefone / WhatsApp</div>
-          <div class="cc-value"><a href="https://wa.me/5511983853451" target="_blank">11 98385-3451</a></div>
+          <div class="cc-value"><a href="https://wa.me/5511983853451" target="_blank" rel="noopener">11 98385-3451</a>
+          </div>
         </div>
         <div class="contact-card">
           <div class="cc-label">Site</div>
-          <div class="cc-value"><a href="http://www.ergoanalise.com.br" target="_blank">ergoanalise.com.br</a></div>
+          <div class="cc-value"><a href="https://ergoanalise.com.br" target="_blank"
+              rel="noopener">ergoanalise.com.br</a></div>
         </div>
         <div class="contact-card">
           <div class="cc-label">E-mail</div>
           <div class="cc-value"><a href="mailto:apoio.consultoria.10@gmail.com">apoio.consultoria.10@gmail.com</a></div>
         </div>
       </div>
-      <a href="https://wa.me/5511983853451" target="_blank" class="btn btn-primary reveal reveal-delay-3"
+      <a href="https://wa.me/5511983853451" target="_blank" rel="noopener" class="btn btn-primary reveal reveal-delay-3"
         style="font-size:1rem; padding:1.1rem 2.5rem;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path
             d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
         </svg>
-        Agendar Consultoria Gratuita
+        Agendar diagnóstico gratuito
       </a>
     </div>
   </section>
@@ -2141,23 +2642,24 @@
     <div class="orcamento-container">
       <div class="reveal">
         <div class="section-eyebrow">Solicite um Orçamento</div>
-        <h2 class="section-title">Escolha o tipo de <em>atendimento</em></h2>
-        <p class="section-lead">Selecione o formulário abaixo para nos enviar os detalhes do que sua empresa precisa.</p>
+        <h2 class="section-title">Prefere escrever? <em>Também dá.</em></h2>
+        <p class="section-lead">Escolha o tipo de atendimento e conte o que sua empresa precisa. Respondemos em até um
+          dia útil.</p>
       </div>
 
       <div class="form-selector reveal reveal-delay-1">
         <div class="selector-card active" onclick="switchForm('treinamentos', this)">
           <h4>Treinamentos e Palestras</h4>
-          <p>Capacitação de equipes, workshops e palestras de saúde mental.</p>
+          <p>Capacitação de equipes, workshops, rodas de conversa e palestras de saúde mental.</p>
         </div>
         <div class="selector-card" onclick="switchForm('analises', this)">
-          <h4>AET / AEP / ARP</h4>
-          <p>Análises ergonômicas e avaliações de riscos psicossociais.</p>
+          <h4>Análises e Documentação</h4>
+          <p>AET, AEP, ARP, PGR/GRO, documentação de SST e CIPA.</p>
         </div>
       </div>
 
       <div id="form-container" class="iframe-wrapper reveal reveal-delay-2">
-        <iframe id="google-form-iframe"
+        <iframe id="google-form-iframe" title="Formulário de orçamento"
           src="https://docs.google.com/forms/d/e/1FAIpQLSdVBI6nW5X_hQN3sWcc657bUeuIsXcwQq6GLAC5H_RC0R5MQg/viewform?embedded=true"
           frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
       </div>
@@ -2170,11 +2672,12 @@
       <div>
         <div class="footer-logo">Ergo<span>Análise</span></div>
         <div style="font-size:0.78rem; color:rgba(255,255,255,0.35); margin-top:0.4rem;">Consultoria Estratégica em
-          Ergonomia</div>
+          Ergonomia e Riscos Psicossociais</div>
       </div>
       <div class="footer-meta">
-        <div>© 2025 ErgoAnálise Consultoria Estratégica</div>
-        <div>11 98385-3451 · apoio.consultoria.10@gmail.com</div>
+        <div>© 2026 ErgoAnálise Consultoria Estratégica</div>
+        <div><a href="https://wa.me/5511983853451" target="_blank" rel="noopener">11 98385-3451</a> · <a
+            href="mailto:apoio.consultoria.10@gmail.com">apoio.consultoria.10@gmail.com</a></div>
       </div>
     </div>
   </footer>
@@ -2182,8 +2685,9 @@
   <!-- WHATSAPP FLOAT -->
   <div class="wpp-float">
     <div class="wpp-label">Fale agora no WhatsApp 💬</div>
-    <a href="https://wa.me/5511983853451" target="_blank" class="wpp-btn" title="Fale conosco no WhatsApp">
-      <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <a href="https://wa.me/5511983853451" target="_blank" rel="noopener" class="wpp-btn"
+      title="Fale conosco no WhatsApp" aria-label="Fale conosco no WhatsApp">
+      <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <path
           d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
       </svg>
@@ -2231,6 +2735,15 @@
     }, { threshold: 0.12 });
     reveals.forEach(el => observer.observe(el));
 
+    // ── FAQ: só uma pergunta aberta por vez ──
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      item.addEventListener('toggle', () => {
+        if (!item.open) return;
+        faqItems.forEach(outro => { if (outro !== item) outro.open = false; });
+      });
+    });
+
     // ── GOOGLE FORMS SELECTION ──
     const forms = {
       treinamentos: "https://docs.google.com/forms/d/e/1FAIpQLSdVBI6nW5X_hQN3sWcc657bUeuIsXcwQq6GLAC5H_RC0R5MQg/viewform?embedded=true",
@@ -2241,11 +2754,9 @@
       const iframe = document.getElementById('google-form-iframe');
       const container = document.getElementById('form-container');
 
-      // Update Active State
       document.querySelectorAll('.selector-card').forEach(card => card.classList.remove('active'));
       element.classList.add('active');
 
-      // Transition effect
       container.classList.remove('loaded');
 
       setTimeout(() => {
@@ -2253,7 +2764,6 @@
         setTimeout(() => container.classList.add('loaded'), 300);
       }, 300);
 
-      // Scroll smoothly to top of form if needed
       const navH = document.getElementById('navbar').offsetHeight;
       const top = container.getBoundingClientRect().top + window.scrollY - navH - 100;
       window.scrollTo({ top, behavior: 'smooth' });
