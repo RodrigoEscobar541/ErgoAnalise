@@ -194,7 +194,10 @@
     }
 
     .nav-links a:hover {
-      color: var(--terracotta);
+      /* --rose-line em vez de --terracotta enquanto o nav é escuro:
+         terracota sobre olive-deep dá 2,56:1 (ilegível); rose-line dá 6,8:1.
+         Rever quando o nav migrar para o fundo creme. */
+      color: var(--rose-line);
     }
 
     .nav-cta {
@@ -268,7 +271,8 @@
     }
 
     .mobile-menu a:hover {
-      color: var(--terracotta);
+      /* mesmo motivo de .nav-links a:hover — fundo escuro nesta etapa */
+      color: var(--rose-line);
     }
 
     /* ── HERO ── */
