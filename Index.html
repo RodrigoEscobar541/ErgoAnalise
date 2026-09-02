@@ -58,23 +58,7 @@
 
   <style>
     :root {
-      --ink: #0F1C22;
-      --teal-dark: #15484B;
-      --sage: #6C8D7C;
-      --forest: #294E3D;
-      --hunter: #435A40;
-      --rust: #B54712;
-      --amber: #CF7E15;
-      --sand: #D0A966;
-      --cream: #F5F0E8;
-      --off-white: #FAF8F4;
-      --white: #FFFFFF;
-      --text-main: #1a2a20;
-      --text-muted: #5a6b5f;
-
-      /* ── LAYOUT NOVO (ver LAYOUT.md §1.1) — aplicado seção por seção ──
-         Tokens ADITIVOS: nada acima foi alterado, para que as seções ainda
-         não migradas continuem com as cores atuais.
+      /* ── PALETA DO LAYOUT NOVO (LAYOUT.md §1.1) ──
          Hex estimados visualmente a partir das imagens; trocar pelos valores
          exatos quando o arquivo original (Canva/PDF) estiver disponível. */
       --paper: #F7F4EC;
@@ -86,17 +70,38 @@
       --rose-line: #D9A08C;
       --ink-warm: #3A3A32;
       --ink-warm-soft: #5A5A50;
-      /* Derivado — NÃO consta no LAYOUT.md. Existe só para manter o header
-         escuro nesta etapa (o layout novo não tem superfície escura).
-         Removível quando o hero migrar para o fundo creme. */
+      --icon-tile: #E8E4D6;
+      /* Derivados — NÃO constam no LAYOUT.md. Necessários porque o site tem
+         superfícies que as peças impressas não têm (rodapé sólido, blocos
+         preenchidos). Escolhidos dentro da família olive/terracota. */
       --olive-deep: #3A3F2E;
+      --hairline: rgba(58, 58, 50, 0.14);
+
+      /* ── NOMES ANTIGOS, VALORES NOVOS ──
+         Mantidos como alias para que as ~1.900 linhas de CSS que já os
+         referenciam adotem a paleta nova sem reescrita linha a linha.
+         Não usar em código novo — preferir os tokens acima. */
+      --ink: #3A3A32;
+      --teal-dark: #6B7350;
+      --sage: #A8AE8C;
+      --forest: #6B7350;
+      --hunter: #5A5A50;
+      --rust: #C05F3C;
+      --amber: #C05F3C;
+      --sand: #A9523A;
+      --cream: #EFEAE0;
+      --off-white: #F7F4EC;
+      --white: #FFFFFF;
+      --text-main: #3A3A32;
+      --text-muted: #5A5A50;
 
       --font-display: 'Cormorant Garamond', serif;
       --font-body: 'DM Sans', sans-serif;
       --font-mono: 'Space Mono', monospace;
 
       --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-      --radius: 2px;
+      /* LAYOUT.md §1.5: nenhum canto arredondado nas peças. */
+      --radius: 0;
     }
 
     *,
@@ -151,15 +156,15 @@
       align-items: center;
       justify-content: space-between;
       padding: 1.2rem 4vw;
-      /* LAYOUT.md §1.6: nenhuma sombra nas peças. A elevação ao rolar passa a
-         ser o filete fino de 1px, que é o divisor idiomático do layout (§1.7). */
+      /* LAYOUT.md §1.6: nenhuma sombra nas peças. A elevação ao rolar é o
+         filete fino de 1px, divisor idiomático do layout (§1.7). */
+      background: rgba(247, 244, 236, 0.92);
       border-bottom: 1px solid transparent;
       transition: background 0.4s ease, border-color 0.4s ease;
     }
 
     nav.scrolled {
-      background: rgba(58, 63, 46, 0.96);
-      /* = --olive-deep. Literal porque precisa de alfa; manter em sincronia. */
+      background: rgba(247, 244, 236, 0.97);
       backdrop-filter: blur(12px);
       border-bottom-color: var(--rose-line);
     }
@@ -168,13 +173,13 @@
       font-family: var(--font-display);
       font-size: 1.5rem;
       font-weight: 600;
-      color: var(--paper);
+      color: var(--terracotta);
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
 
     .nav-logo span {
-      color: var(--olive-soft);
+      color: var(--olive);
     }
 
     .nav-links {
@@ -184,7 +189,7 @@
     }
 
     .nav-links a {
-      color: rgba(247, 244, 236, 0.8);
+      color: var(--ink-warm);
       text-decoration: none;
       font-size: 0.82rem;
       font-weight: 500;
@@ -194,13 +199,8 @@
     }
 
     .nav-links a:hover {
-      /* --rose-line em vez de --terracotta enquanto o nav é escuro.
-         Contraste medido (WCAG 2.1):
-           terracota sobre --olive-deep .... 2,56:1  (reprova)
-           rose-line sobre --olive-deep .... 4,85:1  (passa AA)
-           rose-line sobre o hero escuro ... 7,74:1  (passa AAA)
-         Rever quando o nav migrar para o fundo creme. */
-      color: var(--rose-line);
+      /* Nav agora é creme: terracota sobre --paper dá 4,74:1 (passa AA). */
+      color: var(--terracotta);
     }
 
     .nav-cta {
@@ -228,7 +228,7 @@
     .hamburger span {
       width: 24px;
       height: 2px;
-      background: var(--paper);
+      background: var(--ink-warm);
       transition: all 0.3s;
       display: block;
     }
@@ -252,7 +252,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: var(--olive-deep);
+      background: var(--paper);
       z-index: 99;
       flex-direction: column;
       align-items: center;
@@ -265,7 +265,7 @@
     }
 
     .mobile-menu a {
-      color: var(--paper);
+      color: var(--ink-warm);
       text-decoration: none;
       font-family: var(--font-display);
       font-size: 1.9rem;
@@ -274,14 +274,13 @@
     }
 
     .mobile-menu a:hover {
-      /* mesmo motivo de .nav-links a:hover — fundo escuro nesta etapa */
-      color: var(--rose-line);
+      color: var(--terracotta);
     }
 
     /* ── HERO ── */
     #hero {
       min-height: 100vh;
-      background: var(--ink);
+      background: var(--paper);
       position: relative;
       display: flex;
       align-items: center;
@@ -306,7 +305,8 @@
       max-width: 700px;
       max-height: 700px;
       border-radius: 50%;
-      border: 1px solid rgba(108, 141, 124, 0.15);
+      /* Anel da rosa-dos-ventos — elemento decorativo recorrente (LAYOUT.md §1.7) */
+      border: 1px solid rgba(107, 115, 80, 0.28);
       animation: spinSlow 40s linear infinite;
     }
 
@@ -320,7 +320,8 @@
       height: 35vw;
       max-width: 450px;
       max-height: 450px;
-      background: radial-gradient(ellipse at center, rgba(21, 72, 75, 0.35) 0%, transparent 70%);
+      /* Blob orgânico olive de canto (LAYOUT.md §1.7) */
+      background: radial-gradient(ellipse at center, rgba(168, 174, 140, 0.38) 0%, transparent 70%);
       border-radius: 50%;
     }
 
@@ -333,7 +334,7 @@
       height: 38vw;
       max-width: 480px;
       max-height: 480px;
-      border: 1px solid rgba(181, 71, 18, 0.2);
+      border: 1px solid rgba(192, 95, 60, 0.3);
       border-radius: 50%;
     }
 
@@ -423,7 +424,7 @@
       font-family: var(--font-display);
       font-size: clamp(3rem, 6vw, 5.5rem);
       font-weight: 300;
-      color: var(--white);
+      color: var(--ink-warm);
       line-height: 1.08;
       letter-spacing: -0.01em;
       margin-bottom: 1.5rem;
@@ -433,18 +434,18 @@
 
     .hero-title em {
       font-style: italic;
-      color: var(--sage);
+      color: var(--olive);
     }
 
     .hero-title strong {
       display: block;
       font-weight: 600;
-      color: var(--amber);
+      color: var(--terracotta);
     }
 
     .hero-sub {
       font-size: 1.05rem;
-      color: rgba(255, 255, 255, 0.65);
+      color: var(--ink-warm-soft);
       max-width: 540px;
       margin-bottom: 2rem;
       font-weight: 300;
@@ -467,9 +468,10 @@
       font-size: 0.63rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.75);
-      border: 1px solid rgba(108, 141, 124, 0.4);
-      border-radius: 99px;
+      color: var(--ink-warm-soft);
+      border: 1px solid rgba(107, 115, 80, 0.45);
+      /* LAYOUT.md §1.5: sem cantos arredondados */
+      border-radius: 0;
       padding: 0.32rem 0.85rem;
       white-space: nowrap;
     }
@@ -518,27 +520,26 @@
       transform: scale(0.98);
     }
 
+    /* LAYOUT.md §1.6: sem sombras. A elevação vira só o deslocamento em Y. */
     .btn-primary {
-      background: var(--rust);
-      color: var(--white);
-      box-shadow: 0 4px 24px rgba(181, 71, 18, 0.35);
+      background: var(--terracotta);
+      color: var(--paper);
     }
 
     .btn-primary:hover {
-      background: #c94d14;
+      background: var(--terracotta-deep);
       transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(181, 71, 18, 0.45);
     }
 
     .btn-ghost {
       background: transparent;
-      color: var(--white);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: var(--ink-warm);
+      border: 1px solid rgba(58, 58, 50, 0.3);
     }
 
     .btn-ghost:hover {
-      border-color: var(--sage);
-      color: var(--sage);
+      border-color: var(--olive);
+      color: var(--olive);
       transform: translateY(-2px);
     }
 
@@ -551,7 +552,7 @@
       flex-direction: column;
       align-items: center;
       gap: 0.5rem;
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(58, 58, 50, 0.45);
       font-family: var(--font-mono);
       font-size: 0.65rem;
       letter-spacing: 0.15em;
@@ -562,7 +563,7 @@
     .scroll-line {
       width: 1px;
       height: 50px;
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), transparent);
+      background: linear-gradient(to bottom, var(--rose-line), transparent);
       animation: scrollPulse 2s ease-in-out infinite;
     }
 
@@ -699,8 +700,10 @@
 
     /* ── FAIXA DE NÚMEROS ── */
     #numeros {
-      background: var(--teal-dark);
+      background: var(--paper-alt);
       padding: 3.5rem 4vw;
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
     }
 
     .numeros-grid {
@@ -709,11 +712,12 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
-      background: rgba(255, 255, 255, 0.12);
+      /* O "gap" pintado vira o divisor fino do layout (§1.7) */
+      background: var(--hairline);
     }
 
     .numero {
-      background: var(--teal-dark);
+      background: var(--paper-alt);
       padding: 2rem 1.6rem;
       text-align: center;
     }
@@ -722,14 +726,14 @@
       font-family: var(--font-display);
       font-size: clamp(2rem, 3.6vw, 2.9rem);
       font-weight: 300;
-      color: var(--sand);
+      color: var(--terracotta);
       line-height: 1;
     }
 
     .numero-txt {
       margin-top: 0.8rem;
       font-size: 0.86rem;
-      color: rgba(255, 255, 255, 0.72);
+      color: var(--ink-warm-soft);
       line-height: 1.65;
     }
 
@@ -739,7 +743,241 @@
       font-size: 0.58rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.35);
+      color: var(--olive);
+    }
+
+    /* ── OFERTA NR-01 (imagem 2 do layout novo) ──
+       Reproduz o folder de 3 dobras: proposta / dor / solução. */
+    #nr01 {
+      background: var(--paper);
+      padding: 7rem 4vw 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nr01-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+    }
+
+    .nr01-col {
+      padding: 0 2.5rem;
+      border-right: 1px solid var(--hairline);
+    }
+
+    .nr01-col:first-child {
+      padding-left: 0;
+    }
+
+    .nr01-col:last-child {
+      border-right: none;
+      padding-right: 0;
+    }
+
+    /* Filete com ponto terracota na ponta — divisor idiomático (LAYOUT.md §1.7) */
+    .nr01-rule {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin: 1.2rem 0 2rem;
+    }
+
+    .nr01-rule::before {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rose-line);
+    }
+
+    .nr01-rule::after {
+      content: '';
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--terracotta);
+      flex-shrink: 0;
+    }
+
+    .nr01-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 3.6vw, 3.6rem);
+      font-weight: 600;
+      line-height: 1.06;
+      color: var(--terracotta);
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+    }
+
+    .nr01-sub {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--olive);
+      margin-top: 1rem;
+    }
+
+    .nr01-h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--ink-warm);
+      text-transform: uppercase;
+    }
+
+    /* Pilares: Clareza / Organização / Segurança */
+    .nr01-pilares {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      margin-top: 2.5rem;
+    }
+
+    .nr01-pilares li {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+    }
+
+    .nr01-pilares svg {
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+    }
+
+    /* Bloco terracota — o blob da imagem 2 */
+    .nr01-destaque {
+      background: var(--terracotta-deep);
+      color: var(--paper);
+      padding: 2rem 1.8rem;
+      margin-top: 3rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      line-height: 1.8;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* Coluna 2 — as dores */
+    .nr01-dores {
+      list-style: none;
+    }
+
+    .nr01-dores li {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .nr01-dores li:last-child {
+      border-bottom: none;
+    }
+
+    .nr01-dores h3 {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-warm);
+      margin-bottom: 0.6rem;
+    }
+
+    .nr01-dores h3::before {
+      content: '• ';
+      color: var(--terracotta);
+    }
+
+    .nr01-dores p {
+      font-size: 0.9rem;
+      color: var(--ink-warm-soft);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* Coluna 3 — a solução */
+    .nr01-lead {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-warm);
+      line-height: 1.8;
+      margin-bottom: 2.2rem;
+    }
+
+    .nr01-solucoes {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+
+    .nr01-solucoes li {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .nr01-solucoes svg {
+      width: 34px;
+      height: 34px;
+      margin-top: 0.1rem;
+    }
+
+    .nr01-solucoes h3 {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.35rem;
+    }
+
+    .nr01-solucoes p {
+      font-size: 0.88rem;
+      color: var(--ink-warm-soft);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    /* Faixas inferiores das três colunas */
+    .nr01-faixas {
+      max-width: 1300px;
+      margin: 4rem auto 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      border-top: 1px solid var(--hairline);
+    }
+
+    .nr01-faixa {
+      padding: 2rem 2.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-warm);
+      line-height: 1.7;
+      text-align: center;
+      border-right: 1px solid var(--hairline);
+    }
+
+    .nr01-faixa:last-child {
+      border-right: none;
     }
 
     /* ── CENÁRIO ATUAL ── */
@@ -771,8 +1009,8 @@
     }
 
     .problem-card {
-      border: 1px solid rgba(41, 78, 61, 0.12);
-      border-left: 3px solid var(--forest);
+      border: 1px solid var(--hairline);
+      border-left: 3px solid var(--olive);
       padding: 1.8rem 2rem;
       background: var(--white);
       transition: all 0.3s var(--ease-out-expo);
@@ -780,8 +1018,8 @@
     }
 
     .problem-card:hover {
-      border-left-color: var(--rust);
-      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+      /* LAYOUT.md §1.6: sem sombras — o feedback fica no deslocamento */
+      border-left-color: var(--terracotta);
       transform: translateX(6px);
     }
 
@@ -811,7 +1049,7 @@
     /* ── SOLUÇÕES ── */
     #solucoes {
       padding: 8rem 4vw;
-      background: var(--ink);
+      background: var(--paper-alt);
       position: relative;
       overflow: hidden;
     }
@@ -829,7 +1067,7 @@
       top: -20%;
       width: 60%;
       height: 140%;
-      background: radial-gradient(ellipse, rgba(21, 72, 75, 0.2) 0%, transparent 70%);
+      background: radial-gradient(ellipse, rgba(168, 174, 140, 0.3) 0%, transparent 70%);
     }
 
     .solucoes-inner {
@@ -844,22 +1082,22 @@
     }
 
     .solucoes-header .section-title {
-      color: var(--white);
+      color: var(--ink-warm);
     }
 
     .solucoes-header .section-lead {
-      color: rgba(255, 255, 255, 0.55);
+      color: var(--ink-warm-soft);
     }
 
     .solucoes-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5px;
-      background: rgba(108, 141, 124, 0.15);
+      gap: 1px;
+      background: var(--hairline);
     }
 
     .sol-card {
-      background: rgba(15, 28, 34, 0.85);
+      background: var(--paper);
       padding: 2.5rem;
       transition: background 0.3s;
       position: relative;
@@ -873,14 +1111,14 @@
       left: 0;
       right: 0;
       height: 2px;
-      background: linear-gradient(to right, var(--teal-dark), var(--sage));
+      background: linear-gradient(to right, var(--terracotta), var(--rose-line));
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.4s var(--ease-out-expo);
     }
 
     .sol-card:hover {
-      background: rgba(21, 72, 75, 0.3);
+      background: var(--white);
     }
 
     .sol-card:hover::before {
@@ -906,7 +1144,7 @@
       font-family: var(--font-display);
       font-size: 1.5rem;
       font-weight: 600;
-      color: var(--white);
+      color: var(--ink-warm);
       margin-bottom: 0.3rem;
     }
 
@@ -921,16 +1159,18 @@
 
     .sol-card p {
       font-size: 0.88rem;
-      color: rgba(255, 255, 255, 0.55);
+      color: var(--ink-warm-soft);
       line-height: 1.75;
     }
 
     .solucoes-nota {
       margin-top: 2.5rem;
       font-size: 0.82rem;
-      color: rgba(255, 255, 255, 0.45);
+      color: var(--ink-warm-soft);
       line-height: 1.7;
       max-width: 720px;
+      border-left: 2px solid var(--rose-line);
+      padding-left: 1.2rem;
     }
 
     /* ── METODOLOGIA ── */
@@ -952,13 +1192,13 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 0;
-      border: 1px solid rgba(41, 78, 61, 0.12);
+      border: 1px solid rgba(58, 58, 50, 0.12);
     }
 
     .step-item {
       padding: 2.5rem;
-      border-right: 1px solid rgba(41, 78, 61, 0.12);
-      border-bottom: 1px solid rgba(41, 78, 61, 0.12);
+      border-right: 1px solid rgba(58, 58, 50, 0.12);
+      border-bottom: 1px solid rgba(58, 58, 50, 0.12);
       position: relative;
       transition: background 0.3s;
       background: var(--white);
@@ -982,7 +1222,7 @@
       font-family: var(--font-display);
       font-size: 4rem;
       font-weight: 300;
-      color: rgba(41, 78, 61, 0.08);
+      color: rgba(58, 58, 50, 0.08);
       line-height: 1;
       margin-bottom: 1rem;
       position: absolute;
@@ -1035,11 +1275,11 @@
 
     .faq-list {
       margin-top: 3rem;
-      border-top: 1px solid rgba(41, 78, 61, 0.14);
+      border-top: 1px solid rgba(58, 58, 50, 0.14);
     }
 
     .faq-item {
-      border-bottom: 1px solid rgba(41, 78, 61, 0.14);
+      border-bottom: 1px solid rgba(58, 58, 50, 0.14);
       background: var(--white);
     }
 
@@ -1163,9 +1403,10 @@
       flex-shrink: 0;
     }
 
+    /* Bloco preenchido terracota — equivale ao blob da imagem 2 (LAYOUT.md §2) */
     .selo-box {
-      background: var(--forest);
-      color: var(--white);
+      background: var(--terracotta-deep);
+      color: var(--paper);
       padding: 2.8rem;
     }
 
@@ -1177,7 +1418,7 @@
     }
 
     .selo-box h3 em {
-      color: var(--sand);
+      color: var(--rose-line);
       font-style: italic;
     }
 
@@ -1194,7 +1435,7 @@
     /* ── DESENVOLVIMENTO HUMANO ── */
     #desenvolvimento {
       padding: 8rem 4vw;
-      background: var(--forest);
+      background: var(--paper);
       position: relative;
       overflow: hidden;
     }
@@ -1206,8 +1447,8 @@
       width: 40vw;
       height: 100%;
       pointer-events: none;
-      opacity: 0.06;
-      background: radial-gradient(ellipse at right, var(--sand) 0%, transparent 70%);
+      opacity: 0.22;
+      background: radial-gradient(ellipse at right, var(--olive-soft) 0%, transparent 70%);
     }
 
     .desenv-inner {
@@ -1222,11 +1463,11 @@
     }
 
     .desenv-header .section-title {
-      color: var(--white);
+      color: var(--ink-warm);
     }
 
     .desenv-header .section-lead {
-      color: rgba(255, 255, 255, 0.6);
+      color: var(--ink-warm-soft);
     }
 
     .desenv-grid {
@@ -1236,22 +1477,23 @@
     }
 
     .desenv-card {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: var(--white);
+      border: 1px solid var(--hairline);
       padding: 2.5rem;
       transition: all 0.3s;
     }
 
     .desenv-card:hover {
-      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--rose-line);
       transform: translateY(-4px);
     }
 
+    /* Ícone em círculo preenchido — idioma da coluna esquerda da imagem 1 */
     .desenv-card .icon-wrap {
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      background: rgba(207, 126, 21, 0.2);
+      background: var(--icon-tile);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1262,14 +1504,74 @@
       font-family: var(--font-display);
       font-size: 1.35rem;
       font-weight: 600;
-      color: var(--white);
+      color: var(--ink-warm);
       margin-bottom: 0.8rem;
     }
 
     .desenv-card p {
       font-size: 0.88rem;
-      color: rgba(255, 255, 255, 0.6);
+      color: var(--ink-warm-soft);
       line-height: 1.75;
+    }
+
+    /* Catálogo de palestras e treinamentos (grupo B — imagem 1, coluna 3) */
+    .palestras-bloco {
+      margin-top: 4.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--hairline);
+    }
+
+    .palestras-titulo {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--olive);
+      margin-bottom: 2.2rem;
+    }
+
+    .palestras-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem 3.5rem;
+    }
+
+    .palestra-item h4 {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .palestra-item p {
+      font-size: 0.88rem;
+      color: var(--ink-warm-soft);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* Temas das rodas de conversa, dentro do card existente */
+    .rodas-temas {
+      list-style: none;
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .rodas-temas li {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--olive);
+      border: 1px solid var(--hairline);
+      padding: 0.28rem 0.6rem;
     }
 
     /* ── REGIÕES ── */
@@ -1299,13 +1601,13 @@
 
     .regiao-card {
       background: var(--white);
-      border: 1px solid rgba(41, 78, 61, 0.12);
+      border: 1px solid rgba(58, 58, 50, 0.12);
       padding: 1.4rem 1.5rem;
       transition: box-shadow 0.3s;
     }
 
     .regiao-card:hover {
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+      border-color: var(--rose-line);
     }
 
     .regiao-card h4 {
@@ -1355,10 +1657,11 @@
       line-height: 1.85;
     }
 
+    /* Bloco preenchido olive — mesmo idioma da onda do rodapé da imagem 1 */
     .online-box {
-      background: var(--ink);
+      background: var(--olive-deep);
       padding: 3rem;
-      color: var(--white);
+      color: var(--paper);
     }
 
     .online-box h3 {
@@ -1369,7 +1672,7 @@
     }
 
     .online-box h3 em {
-      color: var(--amber);
+      color: var(--rose-line);
       font-style: italic;
     }
 
@@ -1399,7 +1702,7 @@
       display: inline-block;
       width: 6px;
       height: 6px;
-      background: var(--amber);
+      background: var(--rose-line);
       border-radius: 50%;
       flex-shrink: 0;
     }
@@ -1436,7 +1739,7 @@
       left: -16px;
       right: 16px;
       bottom: 16px;
-      border: 1px solid rgba(41, 78, 61, 0.15);
+      border: 1px solid rgba(58, 58, 50, 0.15);
       z-index: 0;
     }
 
@@ -1554,12 +1857,12 @@
 
     .badge {
       background: var(--white);
-      border: 1px solid rgba(41, 78, 61, 0.15);
+      border: 1px solid rgba(58, 58, 50, 0.15);
       padding: 0.3rem 0.8rem;
       font-size: 0.75rem;
-      color: var(--forest);
+      color: var(--olive);
       font-weight: 500;
-      border-radius: 99px;
+      border-radius: 0;
       transition: all 0.2s;
       white-space: nowrap;
     }
@@ -1571,7 +1874,7 @@
 
     .sobre-credentials .badge {
       background: var(--off-white);
-      border-color: rgba(41, 78, 61, 0.12);
+      border-color: rgba(58, 58, 50, 0.12);
       font-size: 0.72rem;
       font-weight: 500;
       color: var(--forest);
@@ -1585,7 +1888,7 @@
     /* ── CONTATO / CTA ── */
     #contato {
       padding: 8rem 4vw;
-      background: var(--ink);
+      background: var(--paper-alt);
       position: relative;
       overflow: hidden;
     }
@@ -1603,7 +1906,7 @@
       top: -20%;
       width: 70%;
       height: 140%;
-      background: radial-gradient(ellipse, rgba(21, 72, 75, 0.25) 0%, transparent 65%);
+      background: radial-gradient(ellipse, rgba(107, 115, 80, 0.25) 0%, transparent 65%);
     }
 
     .contato-inner {
@@ -1619,12 +1922,12 @@
     }
 
     .contato-inner .section-title {
-      color: var(--white);
+      color: var(--ink-warm);
       margin: 0 auto;
     }
 
     .contato-inner .section-lead {
-      color: rgba(255, 255, 255, 0.55);
+      color: var(--ink-warm-soft);
       margin: 1rem auto 2.5rem;
       max-width: 560px;
       text-align: center;
@@ -1639,7 +1942,7 @@
     }
 
     .contato-passo {
-      border-top: 1px solid rgba(108, 141, 124, 0.35);
+      border-top: 1px solid rgba(107, 115, 80, 0.35);
       padding-top: 1.1rem;
     }
 
@@ -1654,7 +1957,7 @@
     .contato-passo p {
       margin-top: 0.5rem;
       font-size: 0.88rem;
-      color: rgba(255, 255, 255, 0.62);
+      color: var(--ink-warm-soft);
       line-height: 1.65;
     }
 
@@ -1662,12 +1965,12 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
-      background: rgba(108, 141, 124, 0.2);
+      background: var(--hairline);
       margin-bottom: 3rem;
     }
 
     .contact-card {
-      background: rgba(15, 28, 34, 0.8);
+      background: var(--white);
       padding: 2rem 1.5rem;
       text-align: center;
     }
@@ -1675,7 +1978,7 @@
     .contact-card .cc-label {
       font-family: var(--font-mono);
       font-size: 0.62rem;
-      color: var(--sage);
+      color: var(--olive);
       letter-spacing: 0.15em;
       text-transform: uppercase;
       margin-bottom: 0.5rem;
@@ -1685,7 +1988,7 @@
       font-family: var(--font-body);
       font-size: 0.95rem;
       font-weight: 500;
-      color: var(--white);
+      color: var(--ink-warm);
       letter-spacing: 0.01em;
     }
 
@@ -1722,8 +2025,8 @@
 
     .selector-card {
       background: var(--white);
-      border: 1.5px solid rgba(41, 78, 61, 0.1);
-      border-radius: 16px;
+      border: 1.5px solid var(--hairline);
+      border-radius: 0;
       padding: 1.5rem;
       cursor: pointer;
       transition: all 0.3s var(--ease-out-expo);
@@ -1735,13 +2038,12 @@
 
     .selector-card:hover {
       transform: translateY(-4px);
-      border-color: var(--sage);
-      box-shadow: 0 10px 30px rgba(41, 78, 61, 0.08);
+      border-color: var(--rose-line);
     }
 
     .selector-card.active {
-      border-color: var(--forest);
-      background: var(--forest);
+      border-color: var(--terracotta);
+      background: var(--terracotta);
     }
 
     .selector-card h4 {
@@ -1767,9 +2069,8 @@
 
     .iframe-wrapper {
       background: var(--white);
-      border-radius: 20px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
-      border: 1px solid rgba(41, 78, 61, 0.05);
+      border-radius: 0;
+      border: 1px solid var(--hairline);
       overflow: hidden;
       min-height: 800px;
       position: relative;
@@ -1862,10 +2163,24 @@
     }
 
     /* ── FOOTER ── */
+    /* Onda olive sangrando de borda a borda — LAYOUT.md §2, rodapé da imagem 1.
+       O SVG inline (data URI) desenha a curva; o footer continua sólido abaixo. */
     footer {
-      background: #060e11;
+      background: var(--olive-deep);
       padding: 3rem 4vw;
-      border-top: 1px solid rgba(108, 141, 124, 0.15);
+      position: relative;
+      margin-top: 90px;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 100%;
+      height: 90px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 90' preserveAspectRatio='none'%3E%3Cpath d='M0,44 C240,92 480,4 720,30 C960,56 1200,10 1440,38 L1440,90 L0,90 Z' fill='%233A3F2E'/%3E%3C/svg%3E") no-repeat center bottom / 100% 100%;
+      pointer-events: none;
     }
 
     .footer-inner {
@@ -1882,18 +2197,48 @@
       font-family: var(--font-display);
       font-size: 1.4rem;
       font-weight: 600;
-      color: var(--white);
+      color: var(--paper);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
     .footer-logo span {
-      color: var(--amber);
+      color: var(--olive-soft);
     }
 
     .footer-meta {
       font-size: 0.78rem;
-      color: rgba(255, 255, 255, 0.35);
+      color: rgba(247, 244, 236, 0.62);
       text-align: right;
       line-height: 1.7;
+    }
+
+    /* Linha de contato do rodapé — Instagram/WhatsApp/site (LAYOUT.md §3.1) */
+    .footer-contatos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+      margin-top: 0.9rem;
+      font-size: 0.82rem;
+    }
+
+    .footer-contatos a {
+      color: var(--paper);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: color 0.2s;
+    }
+
+    .footer-contatos a:hover {
+      color: var(--rose-line);
+    }
+
+    .footer-contatos svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
     }
 
     .footer-meta a {
@@ -1925,6 +2270,37 @@
         display: flex;
       }
 
+      /* Oferta NR-01: as 3 dobras viram empilhamento vertical */
+      .nr01-inner,
+      .nr01-faixas {
+        grid-template-columns: 1fr;
+      }
+
+      .nr01-col {
+        padding: 0 0 2.5rem;
+        border-right: none;
+        border-bottom: 1px solid var(--hairline);
+      }
+
+      .nr01-col:not(:first-child) {
+        padding-top: 2.5rem;
+      }
+
+      .nr01-col:last-child {
+        border-bottom: none;
+      }
+
+      .nr01-faixa {
+        border-right: none;
+        border-bottom: 1px solid var(--hairline);
+        text-align: left;
+        padding: 1.5rem 0;
+      }
+
+      .nr01-faixa:last-child {
+        border-bottom: none;
+      }
+
       .cenario-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
@@ -1948,7 +2324,7 @@
       }
 
       .step-item:nth-child(3n) {
-        border-right: 1px solid rgba(41, 78, 61, 0.12);
+        border-right: 1px solid rgba(58, 58, 50, 0.12);
       }
 
       .desenv-grid {
@@ -2151,6 +2527,139 @@
     </div>
   </section>
 
+  <!-- OFERTA NR-01 (grupo B — imagem 2 do layout novo) -->
+  <section id="nr01">
+    <div class="nr01-inner">
+
+      <!-- Coluna 1 · proposta -->
+      <div class="nr01-col reveal">
+        <div class="section-eyebrow">Nossa oferta completa</div>
+        <h2 class="nr01-title">Implantação e adequação à NR-01</h2>
+        <div class="nr01-rule"></div>
+        <p class="nr01-sub">De ponta a ponta</p>
+        <ul class="nr01-pilares">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#C05F3C" stroke-width="1.4" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 1v4M12 19v4M1 12h4M19 12h4" stroke-linecap="round" />
+            </svg>
+            Clareza
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#C05F3C" stroke-width="1.4" aria-hidden="true">
+              <circle cx="12" cy="8" r="3.2" />
+              <path d="M5 20v-1.5A5 5 0 0 1 10 13.5h4a5 5 0 0 1 5 5V20" stroke-linecap="round" />
+            </svg>
+            Organização
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#C05F3C" stroke-width="1.4" aria-hidden="true">
+              <path d="M12 2.5l7.5 3v6c0 4.6-3.1 8.4-7.5 10-4.4-1.6-7.5-5.4-7.5-10v-6z" stroke-linejoin="round" />
+            </svg>
+            Segurança
+          </li>
+        </ul>
+        <div class="nr01-destaque">
+          Transforme obrigação em proteção e valor para sua empresa.
+        </div>
+      </div>
+
+      <!-- Coluna 2 · a dor -->
+      <div class="nr01-col reveal reveal-delay-1">
+        <h2 class="nr01-h2">A dor que muitas empresas enfrentam:</h2>
+        <div class="nr01-rule"></div>
+        <ul class="nr01-dores">
+          <li>
+            <h3>Não sabem por onde começar</h3>
+            <p>A NR-01 exige ações práticas, mas o caminho parece complexo e confuso.</p>
+          </li>
+          <li>
+            <h3>Informações contraditórias</h3>
+            <p>Na internet, cada fonte diz uma coisa. Fica difícil saber o que é certo.</p>
+          </li>
+          <li>
+            <h3>Riscos de multas e passivos</h3>
+            <p>A não conformidade pode gerar sanções, ações trabalhistas e danos à reputação.</p>
+          </li>
+          <li>
+            <h3>Não integração com o RH</h3>
+            <p>SST e Recursos Humanos são complementares e essenciais.</p>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Coluna 3 · a solução -->
+      <div class="nr01-col reveal reveal-delay-2">
+        <h2 class="nr01-h2">A gente resolve para você.</h2>
+        <div class="nr01-rule"></div>
+        <p class="nr01-lead">
+          Clareza, organização e orientação técnica para implantar e adequar sua empresa à NR-01.
+        </p>
+        <ul class="nr01-solucoes">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#C05F3C" stroke-width="1.3" aria-hidden="true">
+              <circle cx="10.5" cy="10.5" r="6.5" />
+              <path d="M15.5 15.5L21 21" stroke-linecap="round" />
+            </svg>
+            <div>
+              <h3>Diagnóstico personalizado</h3>
+              <p>Entendemos sua realidade e mapeamos os gaps.</p>
+            </div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#C05F3C" stroke-width="1.3" aria-hidden="true">
+              <path d="M6 3h8l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" stroke-linejoin="round" />
+              <path d="M14 3v4h4" stroke-linejoin="round" />
+              <path d="M8.5 12h7M8.5 16h5" stroke-linecap="round" />
+            </svg>
+            <div>
+              <h3>Plano de ação prático</h3>
+              <p>Roteiro claro e objetivo para implantação.</p>
+            </div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#C05F3C" stroke-width="1.3" aria-hidden="true">
+              <circle cx="12" cy="12" r="9.2" />
+              <circle cx="12" cy="9.6" r="2.8" />
+              <path d="M6.8 18.6a5.6 5.6 0 0 1 10.4 0" stroke-linecap="round" />
+            </svg>
+            <div>
+              <h3>Orientação especializada</h3>
+              <p>Toda técnica de SST somada às ferramentas de RH.</p>
+            </div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#C05F3C" stroke-width="1.3" aria-hidden="true">
+              <path d="M12 2.5l7.5 3v6c0 4.6-3.1 8.4-7.5 10-4.4-1.6-7.5-5.4-7.5-10v-6z" stroke-linejoin="round" />
+            </svg>
+            <div>
+              <h3>Conformidade e proteção</h3>
+              <p>Segurança jurídica, redução de riscos e mais confiança.</p>
+            </div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#C05F3C" stroke-width="1.3" aria-hidden="true">
+              <circle cx="12" cy="12" r="9.2" />
+              <path d="M7.8 12.2l2.9 2.9 5.5-5.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <div>
+              <h3>Ambiente atraente</h3>
+              <p>Ações práticas para atrair talentos e reduzir o turnover.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Faixas de afirmação (rodapé das três dobras) -->
+    <div class="nr01-faixas reveal">
+      <p class="nr01-faixa">NR-01 não é sobre tratar o estado psicológico do trabalhador</p>
+      <p class="nr01-faixa">O questionário é apenas uma das etapas da implantação.</p>
+      <p class="nr01-faixa">A aplicação da NR-01 defende tanto a empresa quanto o colaborador.</p>
+    </div>
+  </section>
+
   <!-- CENÁRIO ATUAL -->
   <section id="cenario">
     <div class="cenario-grid">
@@ -2203,10 +2712,10 @@
         <div class="sol-card reveal reveal-delay-1">
           <div class="sol-number">01</div>
           <svg class="sol-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="8" y="6" width="24" height="28" rx="2" stroke="#6C8D7C" stroke-width="1.5" />
-            <line x1="14" y1="14" x2="26" y2="14" stroke="#6C8D7C" stroke-width="1.5" />
-            <line x1="14" y1="20" x2="26" y2="20" stroke="#6C8D7C" stroke-width="1.5" />
-            <line x1="14" y1="26" x2="20" y2="26" stroke="#6C8D7C" stroke-width="1.5" />
+            <rect x="8" y="6" width="24" height="28" rx="2" stroke="#6B7350" stroke-width="1.5" />
+            <line x1="14" y1="14" x2="26" y2="14" stroke="#6B7350" stroke-width="1.5" />
+            <line x1="14" y1="20" x2="26" y2="20" stroke="#6B7350" stroke-width="1.5" />
+            <line x1="14" y1="26" x2="20" y2="26" stroke="#6B7350" stroke-width="1.5" />
           </svg>
           <div class="sol-subtitle">Análise Ergonômica</div>
           <h3>AET &amp; AEP</h3>
@@ -2216,8 +2725,8 @@
         <div class="sol-card reveal reveal-delay-2">
           <div class="sol-number">02</div>
           <svg class="sol-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="20" cy="20" r="12" stroke="#6C8D7C" stroke-width="1.5" />
-            <path d="M20 14v6l4 4" stroke="#6C8D7C" stroke-width="1.5" stroke-linecap="round" />
+            <circle cx="20" cy="20" r="12" stroke="#6B7350" stroke-width="1.5" />
+            <path d="M20 14v6l4 4" stroke="#6B7350" stroke-width="1.5" stroke-linecap="round" />
           </svg>
           <div class="sol-subtitle">Avaliação de Riscos Psicossociais</div>
           <h3>ARP</h3>
@@ -2227,8 +2736,8 @@
         <div class="sol-card reveal reveal-delay-3">
           <div class="sol-number">03</div>
           <svg class="sol-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="20" cy="20" r="12" stroke="#6C8D7C" stroke-width="1.5" />
-            <path d="M16 20l3 3 6-6" stroke="#6C8D7C" stroke-width="1.5" stroke-linecap="round"
+            <circle cx="20" cy="20" r="12" stroke="#6B7350" stroke-width="1.5" />
+            <path d="M16 20l3 3 6-6" stroke="#6B7350" stroke-width="1.5" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
           <div class="sol-subtitle">Gerenciamento de Riscos Ocupacionais</div>
@@ -2239,11 +2748,11 @@
         <div class="sol-card reveal reveal-delay-1">
           <div class="sol-number">04</div>
           <svg class="sol-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M12 8h12l6 6v18a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2z" stroke="#6C8D7C"
+            <path d="M12 8h12l6 6v18a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2z" stroke="#6B7350"
               stroke-width="1.5" />
-            <path d="M24 8v6h6" stroke="#6C8D7C" stroke-width="1.5" />
-            <line x1="15" y1="22" x2="25" y2="22" stroke="#6C8D7C" stroke-width="1.5" />
-            <line x1="15" y1="27" x2="22" y2="27" stroke="#6C8D7C" stroke-width="1.5" />
+            <path d="M24 8v6h6" stroke="#6B7350" stroke-width="1.5" />
+            <line x1="15" y1="22" x2="25" y2="22" stroke="#6B7350" stroke-width="1.5" />
+            <line x1="15" y1="27" x2="22" y2="27" stroke="#6B7350" stroke-width="1.5" />
           </svg>
           <div class="sol-subtitle">Documentação de SST</div>
           <h3>PGR · PCMSO · LTCAT · OS</h3>
@@ -2253,11 +2762,11 @@
         <div class="sol-card reveal reveal-delay-2">
           <div class="sol-number">05</div>
           <svg class="sol-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="15" cy="15" r="4" stroke="#6C8D7C" stroke-width="1.5" />
-            <circle cx="26" cy="17" r="3.2" stroke="#6C8D7C" stroke-width="1.5" />
-            <path d="M8 30v-2a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v2" stroke="#6C8D7C" stroke-width="1.5"
+            <circle cx="15" cy="15" r="4" stroke="#6B7350" stroke-width="1.5" />
+            <circle cx="26" cy="17" r="3.2" stroke="#6B7350" stroke-width="1.5" />
+            <path d="M8 30v-2a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v2" stroke="#6B7350" stroke-width="1.5"
               stroke-linecap="round" />
-            <path d="M24 30v-1.5a5 5 0 0 1 4-4.9" stroke="#6C8D7C" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M24 30v-1.5a5 5 0 0 1 4-4.9" stroke="#6B7350" stroke-width="1.5" stroke-linecap="round" />
           </svg>
           <div class="sol-subtitle">Comissão Interna</div>
           <h3>CIPA</h3>
@@ -2267,13 +2776,89 @@
         <div class="sol-card reveal reveal-delay-3">
           <div class="sol-number">06</div>
           <svg class="sol-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M10 30V18M18 30V12M26 30V22M34 30V8" stroke="#6C8D7C" stroke-width="1.5" stroke-linecap="round" />
-            <line x1="6" y1="33" x2="36" y2="33" stroke="#6C8D7C" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M10 30V18M18 30V12M26 30V22M34 30V8" stroke="#6B7350" stroke-width="1.5" stroke-linecap="round" />
+            <line x1="6" y1="33" x2="36" y2="33" stroke="#6B7350" stroke-width="1.5" stroke-linecap="round" />
           </svg>
           <div class="sol-subtitle">Diagnóstico Organizacional</div>
           <h3>Clima e cultura</h3>
           <p>Avaliação de clima e cultura para enxergar o que sustenta ou sabota os resultados — e alimentar o plano de
             ação com dado, não com achismo.</p>
+        </div>
+        <div class="sol-card reveal reveal-delay-1">
+          <div class="sol-number">07</div>
+          <svg class="sol-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M10 9h14l6 6v16a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V11a2 2 0 0 1 2-2z" stroke="#6B7350"
+              stroke-width="1.5" />
+            <path d="M24 9v6h6" stroke="#6B7350" stroke-width="1.5" />
+            <path d="M13 24l3 3 6-6" stroke="#6B7350" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          <div class="sol-subtitle">Evidências para auditoria</div>
+          <h3>Dossiê comprobatório</h3>
+          <p>Organização e arquivo das evidências que comprovam o que foi feito — pronto para auditoria e fiscalização,
+            sem correria de última hora.</p>
+        </div>
+        <div class="sol-card reveal reveal-delay-2">
+          <div class="sol-number">08</div>
+          <svg class="sol-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 32V10" stroke="#6B7350" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M8 11h16l-3 4 3 4H8" stroke="#6B7350" stroke-width="1.5" stroke-linejoin="round" />
+            <circle cx="28" cy="27" r="5" stroke="#6B7350" stroke-width="1.5" />
+          </svg>
+          <div class="sol-subtitle">Execução acompanhada</div>
+          <h3>Plano de ação</h3>
+          <p>Roteiro claro e prático para execução, monitoramento e resultados — com prazo, responsável e indicador para
+            cada medida priorizada.</p>
+        </div>
+        <div class="sol-card reveal reveal-delay-3">
+          <div class="sol-number">09</div>
+          <svg class="sol-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="20" cy="13" r="5" stroke="#6B7350" stroke-width="1.5" />
+            <path d="M10 32v-2a7 7 0 0 1 7-7h6a7 7 0 0 1 7 7v2" stroke="#6B7350" stroke-width="1.5"
+              stroke-linecap="round" />
+            <path d="M30 10h4M32 8v4" stroke="#6B7350" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          <div class="sol-subtitle">Gestão por competências</div>
+          <h3>Consultoria em RH</h3>
+          <p>Descrição de cargos, mapeamento de competências, identidade organizacional, treinamento e desenvolvimento e
+            avaliação de desempenho — o RH somado ao rigor da SST.</p>
+        </div>
+        <div class="sol-card reveal reveal-delay-1">
+          <div class="sol-number">10</div>
+          <svg class="sol-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M32 22a2 2 0 0 1-2 2H14l-6 6V10a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2z" stroke="#6B7350"
+              stroke-width="1.5" stroke-linejoin="round" />
+            <path d="M20 13v5M20 20.5v.5" stroke="#6B7350" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          <div class="sol-subtitle">Acolhimento e encaminhamento</div>
+          <h3>Canal de denúncia</h3>
+          <p>Implantação e manutenção de um canal de denúncia e apoio: ambiente seguro para acolhimento, com fluxo
+            definido de encaminhamento e tratativa.</p>
+        </div>
+        <div class="sol-card reveal reveal-delay-2">
+          <div class="sol-number">11</div>
+          <svg class="sol-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M9 17v6a2 2 0 0 0 2 2h3l9 6V9l-9 6h-3a2 2 0 0 0-2 2z" stroke="#6B7350" stroke-width="1.5"
+              stroke-linejoin="round" />
+            <path d="M28 15.5a6 6 0 0 1 0 9" stroke="#6B7350" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          <div class="sol-subtitle">Cultura de segurança</div>
+          <h3>Endomarketing interno</h3>
+          <p>Campanhas e ações de comunicação interna sobre a NR-01 — para a norma sair do documento e virar
+            comportamento no dia a dia.</p>
+        </div>
+        <div class="sol-card reveal reveal-delay-3">
+          <div class="sol-number">12</div>
+          <svg class="sol-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="7" y="9" width="26" height="17" rx="1.5" stroke="#6B7350" stroke-width="1.5" />
+            <path d="M20 26v5M15 31h10" stroke="#6B7350" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M13 20l4-4 3 3 6-6" stroke="#6B7350" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          <div class="sol-subtitle">Alinhamento interno</div>
+          <h3>Apresentação do PGR</h3>
+          <p>Apresentação e alinhamento do PGR para todas as áreas da empresa — cada gestor sabendo o que lhe cabe no
+            programa.</p>
         </div>
       </div>
       <p class="solucoes-nota reveal">
@@ -2478,7 +3063,7 @@
       <div class="desenv-grid">
         <div class="desenv-card reveal reveal-delay-1">
           <div class="icon-wrap">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CF7E15" stroke-width="1.8"
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C05F3C" stroke-width="1.8"
               aria-hidden="true">
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
               <circle cx="9" cy="7" r="4" />
@@ -2492,7 +3077,7 @@
         </div>
         <div class="desenv-card reveal reveal-delay-2">
           <div class="icon-wrap">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CF7E15" stroke-width="1.8"
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C05F3C" stroke-width="1.8"
               aria-hidden="true">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
             </svg>
@@ -2500,10 +3085,16 @@
           <h3>Rodas de Conversa</h3>
           <p>Espaço seguro de escuta e diálogo. É onde aparece o que não aparece em questionário — e onde o time começa a
             confiar no processo.</p>
+          <ul class="rodas-temas">
+            <li>Endividamento</li>
+            <li>Assédio</li>
+            <li>Valorização da vida</li>
+            <li>Comunicação não-violenta</li>
+          </ul>
         </div>
         <div class="desenv-card reveal reveal-delay-3">
           <div class="icon-wrap">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CF7E15" stroke-width="1.8"
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C05F3C" stroke-width="1.8"
               aria-hidden="true">
               <path
                 d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
@@ -2512,6 +3103,55 @@
           <h3>Psicoterapia Individual</h3>
           <p>Atendimento clínico para colaboradores em sofrimento psíquico. Também é um dos requisitos do certificado da
             Lei 14.831.</p>
+        </div>
+      </div>
+
+      <!-- Catálogo de palestras e treinamentos (grupo B) -->
+      <div class="palestras-bloco reveal">
+        <div class="palestras-titulo">Palestras, treinamentos e diagnósticos</div>
+        <div class="palestras-grid">
+          <div class="palestra-item">
+            <h4>Palestras sobre a NR-01</h4>
+            <p>Para líderes, gestores e funcionários sobre a norma e suas aplicações, com linguagem própria para cada
+              cenário.</p>
+          </div>
+          <div class="palestra-item">
+            <h4>Segurança psicológica no ambiente de trabalho</h4>
+            <p>Como construir equipes confiantes e inovadoras em ambientes onde haja espaço para expressar ideias,
+              reportar falhas e colaborar sem receios.</p>
+          </div>
+          <div class="palestra-item">
+            <h4>Assédio, importunação e seus conceitos</h4>
+            <p>Esclarecimento objetivo sobre definições, diferenças jurídicas e comportamentais. Mecanismos de prevenção
+              e consequências administrativas e legais.</p>
+          </div>
+          <div class="palestra-item">
+            <h4>Responsabilidade do trabalhador na segurança</h4>
+            <p>Ações de conscientização voltadas ao autocuidado, ao fortalecimento pessoal e à promoção de um ambiente de
+              apoio mútuo — o trabalhador como agente do ambiente seguro.</p>
+          </div>
+          <div class="palestra-item">
+            <h4>Produtividade sustentável</h4>
+            <p>Dicas e táticas para manter alto rendimento profissional de forma equilibrada, sem comprometer o bem-estar
+              e o ritmo saudável de trabalho.</p>
+          </div>
+          <div class="palestra-item">
+            <h4>Treinamentos para liderança</h4>
+            <p>In-company e interempresas, de acordo com o perfil mapeado.</p>
+          </div>
+          <div class="palestra-item">
+            <h4>Treinamentos ergonômicos</h4>
+            <p>Para escritórios e home office, reforçando o papel do trabalhador na segurança e saúde do próprio posto.
+            </p>
+          </div>
+          <div class="palestra-item">
+            <h4>Pesquisa de clima organizacional</h4>
+            <p>Diagnóstico do ambiente de trabalho para decisões assertivas — insumo direto para o plano de ação.</p>
+          </div>
+          <div class="palestra-item">
+            <h4>Letramento para moradores</h4>
+            <p>Em assembleias de condomínio, sobre respeito, convivência e autocontrole emocional.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -2702,9 +3342,33 @@
   <footer>
     <div class="footer-inner">
       <div>
-        <div class="footer-logo">Ergo<span>Análise</span></div>
-        <div style="font-size:0.78rem; color:rgba(255,255,255,0.35); margin-top:0.4rem;">Consultoria Estratégica em
+        <div class="footer-logo">Ergo <span>Análise</span></div>
+        <div style="font-size:0.78rem; color:rgba(247,244,236,0.55); margin-top:0.4rem;">Consultoria Estratégica em
           Ergonomia e Riscos Psicossociais</div>
+        <div class="footer-contatos">
+          <a href="https://instagram.com/ergo_analise" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none" />
+            </svg>
+            ergo_analise
+          </a>
+          <a href="https://wa.me/5511983853451" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <path d="M20.5 12a8.5 8.5 0 0 1-12.7 7.4L3.5 20.5l1.2-4.2A8.5 8.5 0 1 1 20.5 12z"
+                stroke-linejoin="round" />
+            </svg>
+            11 98385-3451
+          </a>
+          <a href="https://ergoanalise.com.br" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
+            </svg>
+            www.ergoanalise.com.br
+          </a>
+        </div>
       </div>
       <div class="footer-meta">
         <div>© 2026 ErgoAnálise Consultoria Estratégica</div>
