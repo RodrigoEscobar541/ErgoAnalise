@@ -72,6 +72,25 @@
       --text-main: #1a2a20;
       --text-muted: #5a6b5f;
 
+      /* ── LAYOUT NOVO (ver LAYOUT.md §1.1) — aplicado seção por seção ──
+         Tokens ADITIVOS: nada acima foi alterado, para que as seções ainda
+         não migradas continuem com as cores atuais.
+         Hex estimados visualmente a partir das imagens; trocar pelos valores
+         exatos quando o arquivo original (Canva/PDF) estiver disponível. */
+      --paper: #F7F4EC;
+      --paper-alt: #EFEAE0;
+      --terracotta: #C05F3C;
+      --terracotta-deep: #A9523A;
+      --olive: #6B7350;
+      --olive-soft: #A8AE8C;
+      --rose-line: #D9A08C;
+      --ink-warm: #3A3A32;
+      --ink-warm-soft: #5A5A50;
+      /* Derivado — NÃO consta no LAYOUT.md. Existe só para manter o header
+         escuro nesta etapa (o layout novo não tem superfície escura).
+         Removível quando o hero migrar para o fundo creme. */
+      --olive-deep: #3A3F2E;
+
       --font-display: 'Cormorant Garamond', serif;
       --font-body: 'DM Sans', sans-serif;
       --font-mono: 'Space Mono', monospace;
@@ -132,25 +151,30 @@
       align-items: center;
       justify-content: space-between;
       padding: 1.2rem 4vw;
-      transition: background 0.4s ease, box-shadow 0.4s ease;
+      /* LAYOUT.md §1.6: nenhuma sombra nas peças. A elevação ao rolar passa a
+         ser o filete fino de 1px, que é o divisor idiomático do layout (§1.7). */
+      border-bottom: 1px solid transparent;
+      transition: background 0.4s ease, border-color 0.4s ease;
     }
 
     nav.scrolled {
-      background: rgba(15, 28, 34, 0.96);
+      background: rgba(58, 63, 46, 0.96);
+      /* = --olive-deep. Literal porque precisa de alfa; manter em sincronia. */
       backdrop-filter: blur(12px);
-      box-shadow: 0 2px 40px rgba(0, 0, 0, 0.2);
+      border-bottom-color: var(--rose-line);
     }
 
     .nav-logo {
       font-family: var(--font-display);
       font-size: 1.5rem;
       font-weight: 600;
-      color: var(--white);
-      letter-spacing: 0.02em;
+      color: var(--paper);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
     .nav-logo span {
-      color: var(--amber);
+      color: var(--olive-soft);
     }
 
     .nav-links {
@@ -160,30 +184,31 @@
     }
 
     .nav-links a {
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(247, 244, 236, 0.8);
       text-decoration: none;
       font-size: 0.82rem;
       font-weight: 500;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       transition: color 0.2s;
     }
 
     .nav-links a:hover {
-      color: var(--amber);
+      color: var(--terracotta);
     }
 
     .nav-cta {
-      background: var(--rust);
-      color: var(--white) !important;
+      background: var(--terracotta);
+      color: var(--paper) !important;
       padding: 0.5rem 1.2rem;
-      border-radius: 2px;
+      /* LAYOUT.md §1.5: raio efetivo 0 nas duas peças. */
+      border-radius: 0;
       transition: background 0.2s !important;
     }
 
     .nav-cta:hover {
-      background: var(--amber) !important;
-      color: var(--white) !important;
+      background: var(--terracotta-deep) !important;
+      color: var(--paper) !important;
     }
 
     .hamburger {
@@ -197,7 +222,7 @@
     .hamburger span {
       width: 24px;
       height: 2px;
-      background: var(--white);
+      background: var(--paper);
       transition: all 0.3s;
       display: block;
     }
@@ -221,7 +246,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: var(--ink);
+      background: var(--olive-deep);
       z-index: 99;
       flex-direction: column;
       align-items: center;
@@ -234,7 +259,7 @@
     }
 
     .mobile-menu a {
-      color: var(--white);
+      color: var(--paper);
       text-decoration: none;
       font-family: var(--font-display);
       font-size: 1.9rem;
@@ -243,7 +268,7 @@
     }
 
     .mobile-menu a:hover {
-      color: var(--amber);
+      color: var(--terracotta);
     }
 
     /* ── HERO ── */
@@ -2026,7 +2051,7 @@
 
   <!-- NAV -->
   <nav id="navbar">
-    <div class="nav-logo">Ergo<span>Análise</span></div>
+    <div class="nav-logo">Ergo <span>Análise</span></div>
     <ul class="nav-links">
       <li><a href="#solucoes" onclick="navTo('solucoes',event)">Soluções</a></li>
       <li><a href="#metodologia" onclick="navTo('metodologia',event)">Como funciona</a></li>
