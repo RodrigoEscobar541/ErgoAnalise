@@ -194,8 +194,11 @@
     }
 
     .nav-links a:hover {
-      /* --rose-line em vez de --terracotta enquanto o nav é escuro:
-         terracota sobre olive-deep dá 2,56:1 (ilegível); rose-line dá 6,8:1.
+      /* --rose-line em vez de --terracotta enquanto o nav é escuro.
+         Contraste medido (WCAG 2.1):
+           terracota sobre --olive-deep .... 2,56:1  (reprova)
+           rose-line sobre --olive-deep .... 4,85:1  (passa AA)
+           rose-line sobre o hero escuro ... 7,74:1  (passa AAA)
          Rever quando o nav migrar para o fundo creme. */
       color: var(--rose-line);
     }
